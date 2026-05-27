@@ -10,7 +10,7 @@ import { Spinner } from '../components/ui/Spinner.jsx';
 import { Badge } from '../components/ui/Badge.jsx';
 import { Button } from '../components/ui/Button.jsx';
 import { ProjectCard } from '../components/ProjectCard.jsx';
-import { ExternalLink, Github, ArrowLeft } from 'lucide-react';
+import { ExternalLink, Github, ArrowLeft, Eye } from 'lucide-react';
 
 export const ProjectDetail = () => {
   const { slug } = useParams();
@@ -98,6 +98,12 @@ export const ProjectDetail = () => {
             ))}
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">{project.title}</h1>
+          {typeof project.views === 'number' && (
+            <p className="flex items-center gap-1.5 text-slate-300 text-sm font-medium mt-3">
+              <Eye size={15} />
+              {project.views.toLocaleString()} views
+            </p>
+          )}
         </div>
       </div>
 

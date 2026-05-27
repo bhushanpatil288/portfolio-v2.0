@@ -42,7 +42,11 @@ export const getProjects = asyncWrapper(async (req, res) => {
 
 export const getProjectBySlug = asyncWrapper(async (req, res) => {
   const { slug } = req.params;
-  const project = await Project.findOne({ slug }).populate('categories');
+  const project = await Project.findOneAndUpdate(
+    { slug },
+    { $inc: { views: 1 } },
+    { new: true }
+  ).populate('categories');
   if (!project) {
     throw new ApiError(404, 'Project not found');
   }

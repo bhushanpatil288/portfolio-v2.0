@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from './ui/Card.jsx';
 import { Badge } from './ui/Badge.jsx';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Eye } from 'lucide-react';
 
 export const ProjectCard = ({ project }) => {
-  const { title, slug, shortDesc, coverImage, techStack, categories } = project;
+  const { title, slug, shortDesc, coverImage, techStack, categories, views } = project;
 
   return (
     <Card className="flex flex-col h-full">
@@ -53,13 +53,21 @@ export const ProjectCard = ({ project }) => {
           </div>
         )}
 
-        <Link
-          to={`/projects/${slug}`}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300 group/link transition-colors mt-auto"
-        >
-          View Project
-          <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-        </Link>
+        <div className="flex items-center justify-between mt-auto">
+          <Link
+            to={`/projects/${slug}`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300 group/link transition-colors"
+          >
+            View Project
+            <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+          </Link>
+          {typeof views === 'number' && (
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-400 dark:text-slate-500">
+              <Eye size={13} />
+              {views.toLocaleString()} views
+            </span>
+          )}
+        </div>
       </div>
     </Card>
   );
