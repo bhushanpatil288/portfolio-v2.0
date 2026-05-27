@@ -27,6 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// healthcheck endpoint
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'API is running...' });
+});
+
 // Serve static uploads
 app.use(express.static('public'));
 
