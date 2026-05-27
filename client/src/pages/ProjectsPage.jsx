@@ -48,9 +48,9 @@ export const ProjectsPage = () => {
 
       <PageWrapper>
         <div className="mb-10 text-center md:text-left">
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Showcase</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 mt-1">My Projects</h1>
-          <p className="text-slate-500 mt-2 max-w-xl">
+          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Showcase</span>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">My Projects</h1>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             A gallery of applications and systems I have designed, engineered, and shipped.
           </p>
         </div>
@@ -66,14 +66,14 @@ export const ProjectsPage = () => {
         {isLoading ? (
           <Spinner size="lg" className="py-20" />
         ) : filteredProjects.length === 0 ? (
-          <div className="text-center py-20 bg-white border border-slate-100 rounded-2xl shadow-sm">
-            <p className="text-slate-500 text-lg">No projects match your filter criteria.</p>
+          <div className="text-center py-20 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm">
+            <p className="text-slate-500 dark:text-slate-400 text-lg">No projects match your filter criteria.</p>
             <button
               onClick={() => {
                 setSelectedCategory('all');
                 setSearchQuery('');
               }}
-              className="text-blue-600 font-semibold mt-2 hover:underline focus:outline-none"
+              className="text-blue-600 dark:text-blue-400 font-semibold mt-2 hover:underline focus:outline-none"
             >
               Reset Filters
             </button>

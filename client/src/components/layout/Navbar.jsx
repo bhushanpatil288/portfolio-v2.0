@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth.js';
-import { ShieldCheck, Menu, X } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext.jsx';
+import { ShieldCheck, Menu, X, Sun, Moon } from 'lucide-react';
 
 export const Navbar = () => {
   const { user } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -32,7 +34,7 @@ export const Navbar = () => {
             Portfolio
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -44,6 +46,15 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
+            <button
+              onClick={toggleTheme}
+              type="button"
+              className="p-2 rounded-lg text-slate-200 hover:text-white hover:bg-blue-800 transition-colors focus:outline-none"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
 
             {user ? (
               <Link to="/admin" className="flex items-center gap-1.5 bg-blue-800 text-blue-100 hover:bg-blue-600 transition-colors text-xs font-semibold px-3 py-1.5 rounded-lg border border-blue-600">
@@ -57,7 +68,15 @@ export const Navbar = () => {
             )}
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              type="button"
+              className="p-2 rounded-lg text-slate-200 hover:text-white hover:bg-blue-800 transition-colors focus:outline-none"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white p-2 rounded-md"

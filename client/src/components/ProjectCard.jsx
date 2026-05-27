@@ -30,10 +30,10 @@ export const ProjectCard = ({ project }) => {
       </div>
 
       <div className="p-5 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-slate-900 mb-2 line-clamp-1 hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           <Link to={`/projects/${slug}`}>{title}</Link>
         </h3>
-        <p className="text-slate-600 text-sm mb-4 flex-grow line-clamp-3 leading-relaxed">
+        <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow line-clamp-3 leading-relaxed">
           {shortDesc}
         </p>
 
@@ -54,7 +54,7 @@ export const ProjectCard = ({ project }) => {
 
         <Link
           to={`/projects/${slug}`}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-400 group/link transition-colors mt-auto"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300 group/link transition-colors mt-auto"
         >
           View Project
           <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
