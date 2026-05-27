@@ -14,6 +14,7 @@ export const ProjectCard = ({ project }) => {
           src={coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800'}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          loading="lazy"
         />
         {categories && categories.length > 0 && (
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">

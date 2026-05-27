@@ -111,6 +111,7 @@ export const ProjectDetail = () => {
                         src={img.url}
                         alt={`${project.title} screenshot ${i + 1}`}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                       />
                     </div>
                   ))}

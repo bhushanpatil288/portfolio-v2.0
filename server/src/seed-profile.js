@@ -61,7 +61,7 @@ I'm currently pursuing my MCA (2025–2027) and sharpening my skills at Red & Wh
       github: 'https://github.com/bhushanpatil288',
       linkedin: 'https://www.linkedin.com/in/bhushan-patil-990530223/',
       twitter: 'https://x.com/Bhushan91938529',
-      email: ''
+      email: 'sharewithbhushan@gmail.com'
     },
     avatar: {
       url: 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779881508/profile_a3nwva.png',
