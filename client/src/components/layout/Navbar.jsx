@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth.js';
 import { useTheme } from '../../context/ThemeContext.jsx';
 import { ShieldCheck, Menu, X, Sun, Moon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar = () => {
   const { user } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -78,51 +79,101 @@ export const Navbar = () => {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white p-2 rounded-md"
+              onClick={() => setIsOpen(true)}
+              className="text-slate-200 hover:text-white focus:outline-none p-2 rounded-md hover:bg-blue-800 transition-colors"
+              aria-label="Open menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={24} />
             </button>
           </div>
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-blue-950 border-t border-blue-800 animate-in slide-in-from-top duration-150">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  isActive(link.path) ? 'bg-blue-800 text-blue-400' : 'text-slate-200 hover:bg-blue-900 hover:text-white'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            {user ? (
-              <Link
-                to="/admin"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium bg-blue-800 text-blue-100"
-              >
-                <ShieldCheck size={18} />
-                Dashboard
-              </Link>
-            ) : (
-              <Link
-                to="/admin/login"
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white"
-              >
-                Admin Sign In
-              </Link>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Slide-in Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 z-40 md:hidden"
+            />
+
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 h-screen w-72 max-w-[80vw] bg-blue-950 border-l border-blue-900 shadow-2xl z-50 md:hidden flex flex-col p-6 text-white"
+            >
+              {/* Header with Close Button */}
+              <div className="flex justify-between items-center mb-8">
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center space-x-2 font-bold text-xl tracking-tight text-white"
+                >
+                  <span className="bg-white text-blue-900 rounded px-2 py-0.5 font-extrabold mr-1">P</span>
+                  Portfolio
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-slate-300 hover:text-white p-2 rounded-lg hover:bg-blue-900 transition-colors focus:outline-none"
+                  aria-label="Close menu"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="flex flex-col space-y-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`px-4 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 ${
+                      isActive(link.path)
+                        ? 'bg-blue-800 text-white shadow-sm border border-blue-600/30'
+                        : 'text-slate-300 hover:bg-blue-900/60 hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Bottom Actions */}
+              <div className="mt-auto pt-6 border-t border-blue-900 flex flex-col gap-4">
+                {user ? (
+                  <Link
+                    to="/admin"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full bg-blue-800 text-blue-100 hover:bg-blue-700 transition-colors text-sm font-semibold px-4 py-3 rounded-lg border border-blue-600 shadow-sm"
+                  >
+                    <ShieldCheck size={18} />
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link
+                    to="/admin/login"
+                    onClick={() => setIsOpen(false)}
+                    className="text-center text-sm font-medium text-slate-400 hover:text-white transition-colors py-2"
+                  >
+                    Admin Sign In
+                  </Link>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
+
+export default Navbar;
