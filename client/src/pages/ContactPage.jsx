@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from '../components/layout/PageWrapper.jsx';
 import { ContactForm } from '../components/ContactForm.jsx';
 import { useProfile } from '../hooks/useProfile.js';
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Copy, Check } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 
 export const ContactPage = () => {
   const { data } = useProfile();
   const profile = data?.profile;
+  const [copied, setCopied] = useState(false);
 
   const socialLinks = [
     { icon: Mail, label: 'Email', value: profile?.socials?.email || 'admin@portfolio.dev', url: profile?.socials?.email ? `mailto:${profile.socials.email}` : '#' },
@@ -49,18 +51,37 @@ export const ContactPage = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-3 rounded-lg border border-slate-50 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-200"
+                      className="flex items-center gap-4 p-3 rounded-lg border border-slate-50 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-200 w-full"
                     >
-                      <span className="bg-blue-50 text-blue-800 p-2.5 rounded-lg border border-blue-100">
+                      <span className="bg-blue-50 text-blue-800 p-2.5 rounded-lg border border-blue-100 shrink-0">
                         <Icon size={18} />
                       </span>
-                      <div>
-                        <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                          {social.label}
-                        </span>
-                        <span className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors truncate block max-w-[200px] sm:max-w-xs">
-                          {social.value}
-                        </span>
+                      <div className="flex-grow flex items-center justify-between min-w-0">
+                        <div className="min-w-0">
+                          <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                            {social.label}
+                          </span>
+                          <span className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors truncate block">
+                            {social.value}
+                          </span>
+                        </div>
+                        {social.label === 'Email' && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              navigator.clipboard.writeText(social.value);
+                              toast.success('Email copied to clipboard!');
+                              setCopied(true);
+                              setTimeout(() => setCopied(false), 2000);
+                            }}
+                            className="p-2 ml-2 rounded-lg hover:bg-blue-100/50 text-slate-400 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 shrink-0"
+                            title="Copy email to clipboard"
+                          >
+                            {copied ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
+                          </button>
+                        )}
                       </div>
                     </a>
                   );
