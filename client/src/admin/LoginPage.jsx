@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../hooks/useAuth.js';
 import { Button } from '../components/ui/Button.jsx';
 import { Lock, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -38,7 +39,13 @@ export const LoginPage = () => {
         <title>Portfolio | Admin Login</title>
       </Helmet>
 
-      <div className="min-h-[80vh] flex items-center justify-center bg-slate-50 px-4 py-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="min-h-[80vh] flex items-center justify-center bg-slate-50 px-4 py-12"
+      >
         <div className="max-w-md w-full bg-white border border-slate-100 rounded-xl p-8 shadow-md">
           <div className="text-center mb-8">
             <span className="inline-flex bg-blue-50 text-blue-800 p-3 rounded-full border border-blue-100 mb-3">
@@ -94,7 +101,7 @@ export const LoginPage = () => {
             </Button>
           </form>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

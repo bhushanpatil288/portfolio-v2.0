@@ -1,6 +1,7 @@
 import React from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Layouts
 import { Navbar } from './components/layout/Navbar.jsx';
@@ -29,11 +30,23 @@ import { CategoriesAdmin } from './admin/categories/CategoriesAdmin.jsx';
 
 // Public Layout wrapper containing common header and footer
 const PublicLayout = () => {
+  const location = useLocation();
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
-        <Outlet />
+      <main className="flex-grow flex flex-col">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="flex-grow flex flex-col"
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
       <Footer />
     </div>

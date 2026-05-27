@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.js';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Spinner } from '../components/ui/Spinner.jsx';
 import {
   LayoutDashboard,
@@ -117,7 +118,18 @@ export const AdminLayout = () => {
       )}
 
       <main className="flex-grow p-6 md:p-10 max-h-screen overflow-y-auto w-full">
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="w-full"
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
     </div>
   );
