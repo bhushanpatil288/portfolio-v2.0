@@ -13,16 +13,20 @@ export const uploadImage = asyncWrapper(async (req, res) => {
   if (isCloudinary) {
     res.status(200).json({
       success: true,
-      url: req.file.path || req.file.secure_url,
-      publicId: req.file.filename
+      image: {
+        url: req.file.path || req.file.secure_url,
+        publicId: req.file.filename
+      }
     });
   } else {
     const serverUrl = `${req.protocol}://${req.get('host')}`;
     const filename = req.file.filename;
     res.status(200).json({
       success: true,
-      url: `${serverUrl}/uploads/${filename}`,
-      publicId: filename
+      image: {
+        url: `${serverUrl}/uploads/${filename}`,
+        publicId: filename
+      }
     });
   }
 });
