@@ -87,3 +87,15 @@ export const deleteProject = asyncWrapper(async (req, res) => {
     message: 'Project deleted successfully'
   });
 });
+
+export const getProjectById = asyncWrapper(async (req, res) => {
+  const { id } = req.params;
+  const project = await Project.findById(id).populate('categories');
+  if (!project) {
+    throw new ApiError(404, 'Project not found');
+  }
+  res.status(200).json({
+    success: true,
+    project
+  });
+});

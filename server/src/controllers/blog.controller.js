@@ -70,3 +70,15 @@ export const deleteBlogPost = asyncWrapper(async (req, res) => {
     message: 'Blog post deleted successfully'
   });
 });
+
+export const getBlogPostById = asyncWrapper(async (req, res) => {
+  const { id } = req.params;
+  const post = await BlogPost.findById(id);
+  if (!post) {
+    throw new ApiError(404, 'Blog post not found');
+  }
+  res.status(200).json({
+    success: true,
+    post
+  });
+});
