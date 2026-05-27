@@ -25,6 +25,10 @@ const profileSchema = new mongoose.Schema({
     org: String,
     desc: String
   }],
+  currentlyLearning: [{
+    title: { type: String, required: true },
+    description: { type: String, required: true }
+  }],
   resumeUrl: String,
   socials: {
     github: String,

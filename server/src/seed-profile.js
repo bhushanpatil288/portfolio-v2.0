@@ -56,6 +56,16 @@ I'm currently pursuing my MCA (2025–2027) and sharpening my skills at Red & Wh
         desc: 'Built strong foundations in communication, critical thinking, and self-directed learning — then pivoted fully into software development.'
       }
     ],
+    currentlyLearning: [
+      {
+        title: 'OS-Level & WebSockets',
+        description: 'Diving deep into operating system fundamentals and building real-time networking protocols using WebSockets.'
+      },
+      {
+        title: 'MCA Program (2025–2027)',
+        description: 'Deepening computer science fundamentals, algorithm efficiency, and system design alongside coursework.'
+      }
+    ],
     resumeUrl: 'https://drive.google.com/file/d/1jzGAyXGA4L1uU-HYScIJeMnBmaSQlVS9/view?usp=sharing',
     socials: {
       github: 'https://github.com/bhushanpatil288',
@@ -64,7 +74,7 @@ I'm currently pursuing my MCA (2025–2027) and sharpening my skills at Red & Wh
       email: 'sharewithbhushan@gmail.com'
     },
     avatar: {
-      url: 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779881508/profile_a3nwva.png',
+      url: 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779904100/profile_a3nwva.webp',
       publicId: 'seed_avatar'
     }
   });

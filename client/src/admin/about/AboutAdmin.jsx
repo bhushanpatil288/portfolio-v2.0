@@ -4,7 +4,7 @@ import { getProfile, updateProfile } from '../../api/profile.js';
 import { uploadImage, deleteImage } from '../../api/upload.js';
 import { Spinner } from '../../components/ui/Spinner.jsx';
 import { Button } from '../../components/ui/Button.jsx';
-import { Upload, Trash2, Plus, Sparkles, UserRound, Award, Calendar, Link as LinkIcon, X } from 'lucide-react';
+import { Upload, Trash2, Plus, Sparkles, UserRound, Award, Calendar, Link as LinkIcon, X, BookOpen } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const AboutAdmin = () => {
@@ -32,8 +32,11 @@ export const AboutAdmin = () => {
   const [skills, setSkills] = useState([]);
   const [timeline, setTimeline] = useState([]);
 
+  const [currentlyLearning, setCurrentlyLearning] = useState([]);
+
   const [newSkill, setNewSkill] = useState({ name: '', level: 3 });
   const [newTimeline, setNewTimeline] = useState({ year: '', role: '', org: '', desc: '' });
+  const [newLearning, setNewLearning] = useState({ title: '', description: '' });
 
   const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +60,7 @@ export const AboutAdmin = () => {
       setAvatar(p.avatar || null);
       setSkills(p.skills || []);
       setTimeline(p.timeline || []);
+      setCurrentlyLearning(p.currentlyLearning || []);
     }
   }, [profileData]);
 
@@ -130,6 +134,19 @@ export const AboutAdmin = () => {
     setTimeline(prev => prev.filter((_, i) => i !== index));
   };
 
+  const handleAddLearning = () => {
+    if (!newLearning.title.trim() || !newLearning.description.trim()) {
+      toast.error('Please fill in both Topic and Description fields');
+      return;
+    }
+    setCurrentlyLearning(prev => [...prev, { ...newLearning }]);
+    setNewLearning({ title: '', description: '' });
+  };
+
+  const handleRemoveLearning = (index) => {
+    setCurrentlyLearning(prev => prev.filter((_, i) => i !== index));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -138,7 +155,8 @@ export const AboutAdmin = () => {
       ...formData,
       avatar,
       skills,
-      timeline
+      timeline,
+      currentlyLearning
     };
 
     try {
@@ -478,6 +496,65 @@ export const AboutAdmin = () => {
                     type="button"
                     variant="ghost"
                     onClick={() => handleRemoveTimeline(index)}
+                    className="p-1 text-slate-400 hover:text-red-600 rounded"
+                  >
+                    <Trash2 size={16} />
+                  </Button>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+            <BookOpen size={18} className="text-blue-600" />
+            Currently Learning Topics
+          </h3>
+
+          <div className="space-y-4 bg-slate-50 p-6 rounded-lg border border-slate-100">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Topic Title</label>
+                <input
+                  type="text"
+                  value={newLearning.title}
+                  onChange={(e) => setNewLearning(prev => ({ ...prev, title: e.target.value }))}
+                  placeholder="e.g. OS-Level & WebSockets"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Short Description</label>
+                <input
+                  type="text"
+                  value={newLearning.description}
+                  onChange={(e) => setNewLearning(prev => ({ ...prev, description: e.target.value }))}
+                  placeholder="Brief description of what you're exploring..."
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                />
+              </div>
+            </div>
+            <Button type="button" variant="secondary" onClick={handleAddLearning} className="w-full gap-1.5 py-2">
+              <Plus size={16} />
+              Add Learning Topic
+            </Button>
+          </div>
+
+          <div className="space-y-3">
+            {currentlyLearning.length === 0 ? (
+              <p className="text-slate-400 text-xs italic">No learning topics added yet.</p>
+            ) : (
+              currentlyLearning.map((item, index) => (
+                <div key={index} className="flex justify-between items-start bg-slate-50/30 p-4 rounded-lg border border-slate-100 gap-4">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-800 mb-1">{item.title}</h4>
+                    <p className="text-slate-600 text-xs leading-relaxed">{item.description}</p>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => handleRemoveLearning(index)}
                     className="p-1 text-slate-400 hover:text-red-600 rounded"
                   >
                     <Trash2 size={16} />

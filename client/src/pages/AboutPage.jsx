@@ -6,7 +6,7 @@ import { useProfile } from '../hooks/useProfile.js';
 import { useTheme } from '../context/ThemeContext.jsx';
 import { PageWrapper } from '../components/layout/PageWrapper.jsx';
 import { Spinner } from '../components/ui/Spinner.jsx';
-import { Briefcase, Award, Github } from 'lucide-react';
+import { Briefcase, Award, Github, BookOpen, Terminal, Cpu, Layers } from 'lucide-react';
 import { GitHubCalendar } from 'react-github-calendar';
 
 export const AboutPage = () => {
@@ -99,26 +99,65 @@ export const AboutPage = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
-              <h2 className="text-xl font-bold text-slate-900 mb-6 font-Outfit flex items-center gap-2">
-                <Award className="text-blue-600" size={20} />
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit flex items-center gap-2">
+                <Award className="text-blue-600 dark:text-blue-400" size={20} />
                 Technical Competence
               </h2>
               <div className="space-y-5">
                 {profile.skills?.map((skill) => (
                   <div key={skill.name} className="space-y-1.5">
                     <div className="flex justify-between text-sm">
-                      <span className="font-semibold text-slate-700">{skill.name}</span>
-                      <span className="text-slate-400 text-xs font-bold">Level {skill.level}/5</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">{skill.name}</span>
+                      <span className="text-slate-400 dark:text-slate-500 text-xs font-bold">Level {skill.level}/5</span>
                     </div>
-                    <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                    <div className="w-full bg-slate-100 dark:bg-slate-850 h-2.5 rounded-full overflow-hidden">
                       <div
-                        className="bg-blue-600 h-full rounded-full transition-all duration-500"
+                        className="bg-blue-600 dark:bg-blue-500 h-full rounded-full transition-all duration-500"
                         style={{ width: `${(skill.level / 5) * 100}%` }}
                       />
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* What I'm Learning Now Box */}
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm relative overflow-hidden animate-fade-in">
+              {/* Pulse Indicator */}
+              {profile.currentlyLearning?.length > 0 && (
+                <div className="absolute top-6 right-6 flex items-center gap-1.5 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 text-xs px-2.5 py-1 rounded-full font-bold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  Active Focus
+                </div>
+              )}
+
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit flex items-center gap-2">
+                <BookOpen className="text-blue-600 dark:text-blue-400" size={20} />
+                Learning Now
+              </h2>
+
+              <div className="space-y-4">
+                {profile.currentlyLearning?.length > 0 ? (
+                  profile.currentlyLearning.map((item, idx) => (
+                    <div key={idx} className="p-3.5 bg-slate-50 dark:bg-slate-800/30 rounded-lg border border-slate-100/50 dark:border-slate-800/50">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="p-1.5 bg-blue-50 dark:bg-blue-900/30 rounded text-blue-600 dark:text-blue-400">
+                          <Terminal size={14} />
+                        </span>
+                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">{item.title}</h4>
+                      </div>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-xs text-slate-400 italic">No current learning topics listed.</p>
+                )}
               </div>
             </div>
           </div>
