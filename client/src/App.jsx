@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/layout/Navbar.jsx';
 import { Footer } from './components/layout/Footer.jsx';
 import { AdminLayout } from './admin/AdminLayout.jsx';
+import { BackToTop } from './components/ui/BackToTop.jsx';
 
 // Public Pages
 import { HomePage } from './pages/HomePage.jsx';
@@ -49,6 +50,7 @@ const PublicLayout = () => {
         </AnimatePresence>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
