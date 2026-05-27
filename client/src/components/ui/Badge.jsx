@@ -3,9 +3,9 @@ import { cn } from '../../utils/cn.js';
 
 export const Badge = ({ children, className, variant = 'blue' }) => {
   const variants = {
-    blue: 'bg-blue-100 text-blue-800 border border-blue-200',
-    slate: 'bg-slate-100 text-slate-700 border border-slate-200',
-    outline: 'border border-slate-300 text-slate-600'
+    blue: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800',
+    slate: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700',
+    outline: 'border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400'
   };
 
   return (

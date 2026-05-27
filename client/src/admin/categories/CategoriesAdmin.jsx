@@ -117,10 +117,10 @@ export const CategoriesAdmin = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      <div className="flex justify-between items-center bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+      <div className="flex justify-between items-center bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 font-Outfit">Manage Categories</h1>
-          <p className="text-slate-500 text-sm">Group projects using tags (e.g. Frontend, Fullstack, Mobile).</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 font-Outfit">Manage Categories</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">Group projects using tags (e.g. Frontend, Fullstack, Mobile).</p>
         </div>
         <Button variant="primary" className="gap-2" onClick={openAddModal}>
           <Plus size={16} />
@@ -130,36 +130,36 @@ export const CategoriesAdmin = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {categories.length === 0 ? (
-          <div className="md:col-span-3 text-center py-20 bg-white border border-slate-100 rounded-xl shadow-sm text-slate-400">
+          <div className="md:col-span-3 text-center py-20 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm text-slate-400">
             No categories found. Create your first category!
           </div>
         ) : (
           categories.map((cat) => (
             <div
               key={cat._id}
-              className="bg-white p-5 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
               style={{ borderLeft: `4px solid ${cat.color || '#185FA5'}` }}
             >
               <div>
-                <h3 className="text-lg font-bold text-slate-900 font-Outfit mb-1 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit mb-1 flex items-center gap-2">
                   <Tags size={16} style={{ color: cat.color }} />
                   {cat.name}
                 </h3>
                 <span className="text-xs text-slate-400 font-mono">Slug: {cat.slug}</span>
               </div>
 
-              <div className="flex justify-end gap-2 mt-4 pt-4 border-t border-slate-50">
+              <div className="flex justify-end gap-2 mt-4 pt-4 border-t border-slate-50 dark:border-slate-800">
                 <Button
                   variant="ghost"
                   onClick={() => openEditModal(cat)}
-                  className="p-2 text-blue-600 hover:bg-blue-50 border border-blue-50 rounded-lg"
+                  className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/40 border border-blue-50 dark:border-blue-900 rounded-lg"
                 >
                   <Edit2 size={13} />
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={() => handleDelete(cat._id)}
-                  className="p-2 text-red-600 hover:bg-red-50 border border-red-50 rounded-lg"
+                  className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 border border-red-50 dark:border-red-900 rounded-lg"
                 >
                   <Trash2 size={13} />
                 </Button>
@@ -176,7 +176,7 @@ export const CategoriesAdmin = () => {
       >
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="cat-name" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="cat-name" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Category Name
             </label>
             <input
@@ -186,12 +186,12 @@ export const CategoriesAdmin = () => {
               value={name}
               onChange={handleNameChange}
               placeholder="e.g. Fullstack"
-              className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="cat-slug" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="cat-slug" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               URL Slug
             </label>
             <input
@@ -201,12 +201,12 @@ export const CategoriesAdmin = () => {
               value={slug}
               onChange={(e) => setSlug(slugify(e.target.value))}
               placeholder="e.g. fullstack"
-              className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="cat-color" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="cat-color" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Category Color
             </label>
             <div className="flex items-center gap-3">
@@ -215,19 +215,19 @@ export const CategoriesAdmin = () => {
                 id="cat-color"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
-                className="w-12 h-10 border border-slate-200 rounded-lg cursor-pointer p-1"
+                className="w-12 h-10 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer p-1"
               />
               <input
                 type="text"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
                 placeholder="#185FA5"
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all font-mono"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all font-mono"
               />
             </div>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
             <Button variant="ghost" onClick={closeModal}>
               Cancel
             </Button>

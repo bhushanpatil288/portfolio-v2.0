@@ -3,6 +3,7 @@ import { Link, Navigate, Outlet, useLocation, useNavigate } from 'react-router-d
 import { useAuth } from '../hooks/useAuth.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Spinner } from '../components/ui/Spinner.jsx';
+import { ThemeToggle } from '../components/ui/ThemeToggle.jsx';
 import {
   LayoutDashboard,
   FolderKanban,
@@ -31,7 +32,7 @@ export const AdminLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
         <Spinner size="lg" />
       </div>
     );
@@ -54,12 +55,15 @@ export const AdminLayout = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-slate-50">
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 dark:bg-slate-950 transition-colors">
       <div className="md:hidden flex justify-between items-center bg-blue-900 text-white px-4 py-3 shadow">
         <span className="font-bold tracking-tight">Admin Dashboard</span>
-        <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-1 hover:bg-blue-800 rounded">
-          {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle className="text-slate-100 hover:bg-blue-800" />
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-1 hover:bg-blue-800 rounded">
+            {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       <aside
@@ -67,11 +71,12 @@ export const AdminLayout = () => {
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="h-16 flex items-center px-6 border-b border-blue-800">
+        <div className="h-16 flex items-center justify-between px-6 border-b border-blue-800">
           <Link to="/" className="font-bold text-lg text-white hover:text-blue-100 flex items-center gap-1.5">
             <span className="bg-white text-blue-900 px-2 py-0.5 rounded font-extrabold text-sm">P</span>
             Portfolio Admin
           </Link>
+          <ThemeToggle className="hidden md:inline-flex text-slate-200 hover:text-white hover:bg-blue-800" />
         </div>
 
         <nav className="flex-grow p-4 space-y-1 overflow-y-auto">
@@ -117,7 +122,7 @@ export const AdminLayout = () => {
         />
       )}
 
-      <main className="flex-grow p-6 md:p-10 max-h-screen overflow-y-auto w-full">
+      <main className="flex-grow p-6 md:p-10 max-h-screen overflow-y-auto w-full bg-slate-50 dark:bg-slate-950 transition-colors">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

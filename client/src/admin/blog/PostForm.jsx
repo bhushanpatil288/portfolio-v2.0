@@ -147,24 +147,24 @@ export const PostForm = () => {
 
   return (
     <div className="space-y-6 max-w-4xl animate-in fade-in duration-300">
-      <div className="flex items-center gap-4 bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
-        <Link to="/admin/blog" className="p-2 hover:bg-slate-50 text-slate-500 rounded-lg border border-slate-100">
+      <div className="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+        <Link to="/admin/blog" className="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-lg border border-slate-100 dark:border-slate-700">
           <ArrowLeft size={16} />
         </Link>
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 font-Outfit">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 font-Outfit">
             {isEditMode ? 'Edit Blog Post' : 'Compose Blog Post'}
           </h1>
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
             {isEditMode ? 'Modify title, content, or publication status.' : 'Scaffold and write a new technical article.'}
           </p>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 rounded-xl border border-slate-100 shadow-sm">
+      <form onSubmit={handleSubmit} className="space-y-8 bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="title" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="title" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Post Title
             </label>
             <input
@@ -175,12 +175,12 @@ export const PostForm = () => {
               value={formData.title}
               onChange={handleChange}
               placeholder="e.g. Introduction to MERN Stack"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="slug" className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="slug" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               URL Slug
             </label>
             <input
@@ -191,13 +191,13 @@ export const PostForm = () => {
               value={formData.slug}
               onChange={handleChange}
               placeholder="e.g. intro-to-mern-stack"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="excerpt" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="excerpt" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
             Excerpt / Meta Description (Short summary)
           </label>
           <input
@@ -208,12 +208,12 @@ export const PostForm = () => {
             value={formData.excerpt}
             onChange={handleChange}
             placeholder="A compelling summary shown on blog listing cards."
-            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
           />
         </div>
 
         <div>
-          <label htmlFor="tags" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="tags" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
             Tags (comma-separated list)
           </label>
           <input
@@ -223,14 +223,14 @@ export const PostForm = () => {
             value={formData.tags}
             onChange={handleChange}
             placeholder="e.g. react, tutorial, routing"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
           />
         </div>
 
         <div>
-          <span className="block text-sm font-semibold text-slate-700 mb-2">Post Cover Image</span>
+          <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Post Cover Image</span>
           {coverImage ? (
-            <div className="relative w-full max-w-sm aspect-video rounded-lg overflow-hidden border border-slate-200 bg-slate-50 group">
+            <div className="relative w-full max-w-sm aspect-video rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 group">
               <img src={coverImage.url} alt="Cover" className="w-full h-full object-cover" />
               <button
                 type="button"
@@ -241,7 +241,7 @@ export const PostForm = () => {
               </button>
             </div>
           ) : (
-            <label className="flex flex-col items-center justify-center w-full max-w-sm aspect-video border-2 border-dashed border-slate-200 hover:border-blue-400 rounded-lg cursor-pointer bg-slate-50/50 hover:bg-blue-50/5 transition-all">
+            <label className="flex flex-col items-center justify-center w-full max-w-sm aspect-video border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-blue-400 rounded-lg cursor-pointer bg-slate-50/50 dark:bg-slate-800/40 hover:bg-blue-50/5 transition-all">
               {isUploadingCover ? (
                 <Spinner size="sm" />
               ) : (
@@ -257,7 +257,7 @@ export const PostForm = () => {
         </div>
 
         <div>
-          <label htmlFor="content" className="block text-sm font-semibold text-slate-700 mb-1.5 flex justify-between items-center">
+          <label htmlFor="content" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex justify-between items-center">
             Article Content (Supports Markdown)
             <span className="text-xs text-blue-600 font-medium flex items-center gap-1">
               <Sparkles size={14} />
@@ -272,28 +272,28 @@ export const PostForm = () => {
             value={formData.content}
             onChange={handleChange}
             placeholder="# Introduction..."
-            className="w-full px-4 py-3 rounded-lg border border-slate-200 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
           />
         </div>
 
-        <div className="flex items-center gap-3 bg-slate-50 p-4 rounded-lg border border-slate-100">
+        <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
           <input
             type="checkbox"
             id="published"
             name="published"
             checked={formData.published}
             onChange={handleChange}
-            className="h-4.5 w-4.5 text-blue-600 border-slate-200 rounded focus:ring-blue-600"
+            className="h-4.5 w-4.5 text-blue-600 border-slate-200 dark:border-slate-700 rounded focus:ring-blue-600"
           />
           <div>
-            <label htmlFor="published" className="block text-sm font-bold text-slate-900 cursor-pointer">
+            <label htmlFor="published" className="block text-sm font-bold text-slate-900 dark:text-slate-100 cursor-pointer">
               Publish immediately
             </label>
-            <span className="block text-xs text-slate-500">Live posts are immediately visible on the public articles section.</span>
+            <span className="block text-xs text-slate-500 dark:text-slate-400">Live posts are immediately visible on the public articles section.</span>
           </div>
         </div>
 
-        <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">
+        <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
           <Link to="/admin/blog">
             <Button variant="ghost">Cancel</Button>
           </Link>

@@ -176,23 +176,23 @@ export const AboutAdmin = () => {
 
   return (
     <div className="space-y-6 max-w-4xl animate-in fade-in duration-300">
-      <div className="flex justify-between items-center bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+      <div className="flex justify-between items-center bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 font-Outfit">Edit Profile & CV</h1>
-          <p className="text-slate-500 text-sm">Update your public biography, social linkages, experience timeline, and core skills.</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 font-Outfit">Edit Profile & CV</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">Update your public biography, social linkages, experience timeline, and core skills.</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
             <UserRound size={18} className="text-blue-600" />
             General Bio Information
           </h3>
 
           <div className="flex flex-col md:flex-row gap-6 items-start">
             <div className="flex-shrink-0">
-              <span className="block text-sm font-semibold text-slate-700 mb-2">Avatar Picture</span>
+              <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Avatar Picture</span>
               {avatar ? (
                 <div className="relative w-36 h-36 rounded-full overflow-hidden border-2 border-slate-200 group">
                   <img src={avatar.url} alt="Avatar" className="w-full h-full object-cover" />
@@ -205,7 +205,7 @@ export const AboutAdmin = () => {
                   </button>
                 </div>
               ) : (
-                <label className="flex flex-col items-center justify-center w-36 h-36 border-2 border-dashed border-slate-200 hover:border-blue-400 rounded-full cursor-pointer bg-slate-50 hover:bg-blue-50/5 transition-all">
+                <label className="flex flex-col items-center justify-center w-36 h-36 border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-blue-400 rounded-full cursor-pointer bg-slate-50 dark:bg-slate-800 hover:bg-blue-50/5 transition-all">
                   {isUploadingAvatar ? (
                     <Spinner size="sm" />
                   ) : (
@@ -222,7 +222,7 @@ export const AboutAdmin = () => {
             <div className="flex-grow w-full space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                     Your Name
                   </label>
                   <input
@@ -232,11 +232,11 @@ export const AboutAdmin = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   />
                 </div>
                 <div>
-                  <label htmlFor="title" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="title" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                     Professional Title
                   </label>
                   <input
@@ -246,13 +246,13 @@ export const AboutAdmin = () => {
                     required
                     value={formData.title}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="shortBio" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                <label htmlFor="shortBio" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                   Short Tagline Summary
                 </label>
                 <input
@@ -262,7 +262,7 @@ export const AboutAdmin = () => {
                   required
                   value={formData.shortBio}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -270,7 +270,7 @@ export const AboutAdmin = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="resumeUrl" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              <label htmlFor="resumeUrl" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 Resume/CV URL
               </label>
               <input
@@ -280,11 +280,11 @@ export const AboutAdmin = () => {
                 value={formData.resumeUrl}
                 onChange={handleChange}
                 placeholder="https://drive.google.com/..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
             <div>
-              <label htmlFor="socials.email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              <label htmlFor="socials.email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 Contact Email
               </label>
               <input
@@ -293,13 +293,13 @@ export const AboutAdmin = () => {
                 name="socials.email"
                 value={formData.socials.email}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="bio" className="block text-sm font-semibold text-slate-700 mb-1.5 flex justify-between items-center">
+            <label htmlFor="bio" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex justify-between items-center">
               Detailed Narrative Biography (Supports Markdown)
               <span className="text-xs text-blue-600 font-semibold flex items-center gap-1">
                 <Sparkles size={14} />
@@ -313,19 +313,19 @@ export const AboutAdmin = () => {
               rows={8}
               value={formData.bio}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
             <LinkIcon size={18} className="text-blue-600" />
             Social Profiles Links
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div>
-              <label htmlFor="socials.github" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              <label htmlFor="socials.github" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 GitHub Profile
               </label>
               <input
@@ -335,11 +335,11 @@ export const AboutAdmin = () => {
                 value={formData.socials.github}
                 onChange={handleChange}
                 placeholder="https://github.com/..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
             <div>
-              <label htmlFor="socials.linkedin" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              <label htmlFor="socials.linkedin" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 LinkedIn Profile
               </label>
               <input
@@ -349,11 +349,11 @@ export const AboutAdmin = () => {
                 value={formData.socials.linkedin}
                 onChange={handleChange}
                 placeholder="https://linkedin.com/in/..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
             <div>
-              <label htmlFor="socials.twitter" className="block text-sm font-semibold text-slate-700 mb-1.5">
+              <label htmlFor="socials.twitter" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 Twitter Profile
               </label>
               <input
@@ -363,35 +363,35 @@ export const AboutAdmin = () => {
                 value={formData.socials.twitter}
                 onChange={handleChange}
                 placeholder="https://twitter.com/..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
             <Award size={18} className="text-blue-600" />
             Core Skills Grid
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end bg-slate-50 p-4 rounded-lg border border-slate-100">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end bg-slate-50 dark:bg-slate-800 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Skill Name</label>
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Skill Name</label>
               <input
                 type="text"
                 value={newSkill.name}
                 onChange={(e) => setNewSkill(prev => ({ ...prev, name: e.target.value }))}
                 placeholder="e.g. Node.js"
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Proficiency Level (1-5)</label>
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Proficiency Level (1-5)</label>
               <select
                 value={newSkill.level}
                 onChange={(e) => setNewSkill(prev => ({ ...prev, level: parseInt(e.target.value) }))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               >
                 {[1, 2, 3, 4, 5].map((lvl) => (
                   <option key={lvl} value={lvl}>Level {lvl}/5</option>
@@ -409,7 +409,7 @@ export const AboutAdmin = () => {
               <p className="text-slate-400 text-xs italic">No skills listed yet.</p>
             ) : (
               skills.map((skill, index) => (
-                <div key={index} className="flex items-center gap-2 bg-blue-50/50 border border-blue-100 text-blue-800 px-3 py-1.5 rounded-lg text-xs font-semibold">
+                <div key={index} className="flex items-center gap-2 bg-blue-50/50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-800 dark:text-blue-200 px-3 py-1.5 rounded-lg text-xs font-semibold">
                   <span>{skill.name}</span>
                   <span className="bg-blue-600 text-white rounded-full px-1.5 py-0.5 text-[9px]">L{skill.level}</span>
                   <button type="button" onClick={() => handleRemoveSkill(index)} className="text-slate-400 hover:text-red-600 font-bold ml-1">
@@ -421,53 +421,53 @@ export const AboutAdmin = () => {
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
             <Calendar size={18} className="text-blue-600" />
             Professional Journey Timeline
           </h3>
 
-          <div className="space-y-4 bg-slate-50 p-6 rounded-lg border border-slate-100">
+          <div className="space-y-4 bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border border-slate-100 dark:border-slate-800">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Year Range</label>
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Year Range</label>
                 <input
                   type="text"
                   value={newTimeline.year}
                   onChange={(e) => setNewTimeline(prev => ({ ...prev, year: e.target.value }))}
                   placeholder="e.g. 2024 - Present"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Job Role/Title</label>
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Job Role/Title</label>
                 <input
                   type="text"
                   value={newTimeline.role}
                   onChange={(e) => setNewTimeline(prev => ({ ...prev, role: e.target.value }))}
                   placeholder="e.g. Tech Lead"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Organization/Company</label>
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Organization/Company</label>
                 <input
                   type="text"
                   value={newTimeline.org}
                   onChange={(e) => setNewTimeline(prev => ({ ...prev, org: e.target.value }))}
                   placeholder="e.g. Google DeepMind"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Short Description</label>
+              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Short Description</label>
               <textarea
                 value={newTimeline.desc}
                 onChange={(e) => setNewTimeline(prev => ({ ...prev, desc: e.target.value }))}
                 placeholder="Explain key achievements or details of this position..."
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
               />
             </div>
             <Button type="button" variant="secondary" onClick={handleAddTimeline} className="w-full gap-1.5 py-2">
@@ -481,16 +481,16 @@ export const AboutAdmin = () => {
               <p className="text-slate-400 text-xs italic">No timeline entries added.</p>
             ) : (
               timeline.map((item, index) => (
-                <div key={index} className="flex justify-between items-start bg-slate-50/30 p-4 rounded-lg border border-slate-100 gap-4">
+                <div key={index} className="flex justify-between items-start bg-slate-50/30 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-100 dark:border-slate-800 gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                      <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/40 px-2 py-0.5 rounded border border-blue-100 dark:border-blue-800">
                         {item.year}
                       </span>
-                      <h4 className="text-sm font-bold text-slate-800">{item.role}</h4>
+                      <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">{item.role}</h4>
                       <span className="text-xs text-slate-400">@ {item.org}</span>
                     </div>
-                    <p className="text-slate-600 text-xs leading-relaxed">{item.desc}</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{item.desc}</p>
                   </div>
                   <Button
                     type="button"
@@ -506,32 +506,32 @@ export const AboutAdmin = () => {
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 font-Outfit border-b pb-2 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-Outfit border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
             <BookOpen size={18} className="text-blue-600" />
             Currently Learning Topics
           </h3>
 
-          <div className="space-y-4 bg-slate-50 p-6 rounded-lg border border-slate-100">
+          <div className="space-y-4 bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border border-slate-100 dark:border-slate-800">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Topic Title</label>
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Topic Title</label>
                 <input
                   type="text"
                   value={newLearning.title}
                   onChange={(e) => setNewLearning(prev => ({ ...prev, title: e.target.value }))}
                   placeholder="e.g. OS-Level & WebSockets"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Short Description</label>
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Short Description</label>
                 <input
                   type="text"
                   value={newLearning.description}
                   onChange={(e) => setNewLearning(prev => ({ ...prev, description: e.target.value }))}
                   placeholder="Brief description of what you're exploring..."
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -546,10 +546,10 @@ export const AboutAdmin = () => {
               <p className="text-slate-400 text-xs italic">No learning topics added yet.</p>
             ) : (
               currentlyLearning.map((item, index) => (
-                <div key={index} className="flex justify-between items-start bg-slate-50/30 p-4 rounded-lg border border-slate-100 gap-4">
+                <div key={index} className="flex justify-between items-start bg-slate-50/30 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-100 dark:border-slate-800 gap-4">
                   <div>
-                    <h4 className="text-sm font-bold text-slate-800 mb-1">{item.title}</h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">{item.description}</p>
+                    <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 mb-1">{item.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{item.description}</p>
                   </div>
                   <Button
                     type="button"
@@ -565,7 +565,7 @@ export const AboutAdmin = () => {
           </div>
         </div>
 
-        <div className="flex justify-end bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+        <div className="flex justify-end bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
           <Button type="submit" variant="primary" disabled={isSubmitting} className="px-8 py-3">
             {isSubmitting ? 'Saving Profile...' : 'Save Profile Details'}
           </Button>

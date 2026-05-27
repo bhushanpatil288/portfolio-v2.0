@@ -62,7 +62,8 @@ export const App = () => {
         position="top-right"
         toastOptions={{
           duration: 4000,
-          className: 'text-sm font-medium text-slate-800 bg-white border border-slate-100 shadow-lg rounded-xl',
+          className:
+            'text-sm font-medium text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-lg rounded-xl',
           success: {
             iconTheme: {
               primary: '#185FA5',

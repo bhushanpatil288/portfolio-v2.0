@@ -55,10 +55,10 @@ export const BlogAdmin = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      <div className="flex justify-between items-center bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+      <div className="flex justify-between items-center bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 font-Outfit">Manage Blog Posts</h1>
-          <p className="text-slate-500 text-sm">Write articles, edit tutorials, and toggle draft/published flags.</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 font-Outfit">Manage Blog Posts</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">Write articles, edit tutorials, and toggle draft/published flags.</p>
         </div>
         <Link to="/admin/blog/new">
           <Button variant="primary" className="gap-2">
@@ -68,7 +68,7 @@ export const BlogAdmin = () => {
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
         {posts.length === 0 ? (
           <div className="text-center py-20 text-slate-400">
             No articles found. Click "Write Post" to draft your first article!
@@ -77,17 +77,17 @@ export const BlogAdmin = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50 text-slate-500 font-semibold uppercase tracking-wider text-xs">
+                <tr className="border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider text-xs">
                   <th className="px-6 py-4">Title</th>
                   <th className="px-6 py-4">Status</th>
                   <th className="px-6 py-4">Created At</th>
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
                 {posts.map((post) => (
-                  <tr key={post._id} className="hover:bg-slate-50/50 transition-colors">
-                    <td className="px-6 py-4 font-bold text-slate-900 truncate max-w-xs md:max-w-md">
+                  <tr key={post._id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+                    <td className="px-6 py-4 font-bold text-slate-900 dark:text-slate-100 truncate max-w-xs md:max-w-md">
                       {post.title}
                     </td>
                     <td className="px-6 py-4">
@@ -95,13 +95,13 @@ export const BlogAdmin = () => {
                         onClick={() => handleTogglePublish(post)}
                         className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all ${
                           post.published
-                            ? 'bg-emerald-50 border-emerald-200 text-emerald-800 hover:bg-emerald-100'
-                            : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100'
+                            ? 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/60'
+                            : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                       >
                         {post.published ? (
                           <>
-                            <Globe size={12} className="text-emerald-600" />
+                            <Globe size={12} className="text-emerald-600 dark:text-emerald-400" />
                             Live
                           </>
                         ) : (
@@ -112,27 +112,27 @@ export const BlogAdmin = () => {
                         )}
                       </button>
                     </td>
-                    <td className="px-6 py-4 text-slate-500 text-xs">
+                    <td className="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs">
                       {formatDate(post.createdAt)}
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
                         {post.published && (
                           <Link to={`/blog/${post.slug}`} target="_blank">
-                            <Button variant="ghost" className="p-2 text-slate-500 hover:text-slate-900 border border-slate-100 rounded-lg">
+                            <Button variant="ghost" className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 border border-slate-100 dark:border-slate-700 rounded-lg">
                               <Eye size={14} />
                             </Button>
                           </Link>
                         )}
                         <Link to={`/admin/blog/edit/${post._id}`}>
-                          <Button variant="ghost" className="p-2 text-blue-600 hover:bg-blue-50 border border-blue-50 rounded-lg">
+                          <Button variant="ghost" className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/40 border border-blue-50 dark:border-blue-900 rounded-lg">
                             <Edit2 size={14} />
                           </Button>
                         </Link>
                         <Button
                           variant="ghost"
                           onClick={() => handleDelete(post._id)}
-                          className="p-2 text-red-600 hover:bg-red-50 border border-red-50 rounded-lg"
+                          className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 border border-red-50 dark:border-red-900 rounded-lg"
                         >
                           <Trash2 size={14} />
                         </Button>
