@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from '../components/layout/PageWrapper.jsx';
 import { FilterBar } from '../components/FilterBar.jsx';
 import { ProjectCard } from '../components/ProjectCard.jsx';
-import { Spinner } from '../components/ui/Spinner.jsx';
+import { ProjectCardSkeleton } from '../components/ProjectCardSkeleton.jsx';
 import { useProjects } from '../hooks/useProjects.js';
 import { getCategories } from '../api/projects.js';
 import { useQuery } from '@tanstack/react-query';
@@ -64,7 +64,11 @@ export const ProjectsPage = () => {
         />
 
         {isLoading ? (
-          <Spinner size="lg" className="py-20" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <ProjectCardSkeleton key={index} />
+            ))}
+          </div>
         ) : filteredProjects.length === 0 ? (
           <div className="text-center py-20 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm">
             <p className="text-slate-500 dark:text-slate-400 text-lg">No projects match your filter criteria.</p>
