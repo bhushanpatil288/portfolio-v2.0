@@ -3,13 +3,22 @@ import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useProfile } from '../hooks/useProfile.js';
+import { useTheme } from '../context/ThemeContext.jsx';
 import { PageWrapper } from '../components/layout/PageWrapper.jsx';
 import { Spinner } from '../components/ui/Spinner.jsx';
-import { Briefcase, Award } from 'lucide-react';
+import { Briefcase, Award, Github } from 'lucide-react';
+import { GitHubCalendar } from 'react-github-calendar';
 
 export const AboutPage = () => {
   const { data, isLoading, error } = useProfile();
+  const { theme } = useTheme();
   const profile = data?.profile;
+
+  const getGitHubUsername = (url) => {
+    if (!url) return '';
+    const parts = url.replace(/\/$/, '').split('/');
+    return parts[parts.length - 1] || '';
+  };
 
   if (isLoading) {
     return (
@@ -28,6 +37,8 @@ export const AboutPage = () => {
       </PageWrapper>
     );
   }
+
+  const githubUsername = getGitHubUsername(profile.socials?.github) || 'bhushanpatil288';
 
   return (
     <>
@@ -110,6 +121,23 @@ export const AboutPage = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* GitHub Contributions Graph */}
+        <div className="mt-12 bg-white p-6 md:p-8 rounded-xl border border-slate-100 shadow-sm">
+          <h3 className="text-xl font-bold text-slate-900 mb-6 font-Outfit flex items-center gap-2">
+            <Github className="text-blue-600" size={22} />
+            GitHub Code Activity
+          </h3>
+          <div className="overflow-x-auto flex justify-center py-2">
+            <GitHubCalendar
+              username={githubUsername}
+              colorScheme={theme === 'dark' ? 'dark' : 'light'}
+              fontSize={12}
+              blockSize={12}
+              blockMargin={4}
+            />
           </div>
         </div>
       </PageWrapper>
