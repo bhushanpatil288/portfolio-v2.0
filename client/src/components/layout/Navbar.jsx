@@ -26,13 +26,22 @@ export const Navbar = () => {
     return location.pathname.startsWith(path);
   };
 
+  const logoIconColor = theme === 'dark' ? '#85B7EB' : '#85B7EB';
+  const logoTextColor = theme === 'dark' ? '#E6F1FB' : '#E6F1FB';
+  const logoSubtitleColor = theme === 'dark' ? '#85B7EB' : '#85B7EB';
+
   return (
     <nav className="sticky top-0 z-40 bg-blue-900 text-white shadow-md">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2 font-bold text-xl tracking-tight text-white hover:text-blue-100 transition-colors">
-            <span className="bg-white text-blue-900 rounded px-2 py-0.5 font-extrabold mr-1">P</span>
-            Portfolio
+            <svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill={logoIconColor}>&lt;</text>
+              <text x="20" y="30" fontFamily="system-ui,sans-serif" fontSize="18" fontWeight="700" fill={logoTextColor}>bp</text>
+              <text x="42" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill={logoIconColor}>/&gt;</text>
+              <text x="82" y="20" fontFamily="system-ui,sans-serif" fontSize="13" fontWeight="600" fill={logoTextColor}>Bhushan Patil</text>
+              <text x="82" y="34" fontFamily="system-ui,sans-serif" fontSize="10" fill={logoSubtitleColor} letterSpacing="1.5">FULL STACK DEV</text>
+            </svg>
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">
@@ -117,8 +126,13 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center space-x-2 font-bold text-xl tracking-tight text-white"
                 >
-                  <span className="bg-white text-blue-900 rounded px-2 py-0.5 font-extrabold mr-1">P</span>
-                  Portfolio
+                  <svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill={logoIconColor}>&lt;</text>
+                    <text x="20" y="30" fontFamily="system-ui,sans-serif" fontSize="18" fontWeight="700" fill={logoTextColor}>bp</text>
+                    <text x="42" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill={logoIconColor}>/&gt;</text>
+                    <text x="82" y="20" fontFamily="system-ui,sans-serif" fontSize="13" fontWeight="600" fill={logoTextColor}>Bhushan Patil</text>
+                    <text x="82" y="34" fontFamily="system-ui,sans-serif" fontSize="10" fill={logoSubtitleColor} letterSpacing="1.5">FULL STACK DEV</text>
+                  </svg>
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}

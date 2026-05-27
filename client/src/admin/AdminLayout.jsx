@@ -73,8 +73,13 @@ export const AdminLayout = () => {
       >
         <div className="h-16 flex items-center justify-between px-6 border-b border-blue-800">
           <Link to="/" className="font-bold text-lg text-white hover:text-blue-100 flex items-center gap-1.5">
-            <span className="bg-white text-blue-900 px-2 py-0.5 rounded font-extrabold text-sm">P</span>
-            Portfolio Admin
+            <svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill="#85B7EB">&lt;</text>
+              <text x="20" y="30" fontFamily="system-ui,sans-serif" fontSize="18" fontWeight="700" fill="#E6F1FB">bp</text>
+              <text x="42" y="30" fontFamily="ui-monospace,monospace" fontSize="26" fontWeight="300" fill="#85B7EB">/&gt;</text>
+              <text x="82" y="20" fontFamily="system-ui,sans-serif" fontSize="13" fontWeight="600" fill="#B5D4F4">Bhushan Patil</text>
+              <text x="82" y="34" fontFamily="system-ui,sans-serif" fontSize="10" fill="#85B7EB" letterSpacing="1.5">FULL STACK DEV</text>
+            </svg>
           </Link>
           <ThemeToggle className="hidden md:inline-flex text-slate-200 hover:text-white hover:bg-blue-800" />
         </div>
