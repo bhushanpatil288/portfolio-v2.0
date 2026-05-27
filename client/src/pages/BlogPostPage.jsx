@@ -76,10 +76,10 @@ export const BlogPostPage = () => {
               </Badge>
             ))}
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-Outfit">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white font-Outfit">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-slate-500 font-medium">
+          <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
             <span className="flex items-center gap-1.5">
               <Calendar size={15} />
               {formatDate(post.publishedAt || post.createdAt)}
@@ -91,7 +91,7 @@ export const BlogPostPage = () => {
           </div>
         </div>
 
-        <div className="aspect-[2/1] rounded-xl overflow-hidden bg-slate-100 border border-slate-100 shadow-sm mb-10">
+        <div className="aspect-[2/1] rounded-xl overflow-hidden bg-slate-100 border border-slate-100 dark:border-slate-900 shadow-sm mb-10">
           <img
             src={post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000'}
             alt={post.title}
@@ -99,7 +99,7 @@ export const BlogPostPage = () => {
           />
         </div>
 
-        <article className="markdown-content bg-white p-6 md:p-10 rounded-xl border border-slate-100 shadow-sm animate-in fade-in duration-300">
+        <article className="markdown-content bg-white dark:bg-slate-800 p-6 md:p-10 rounded-xl border border-slate-100 dark:border-slate-900 shadow-sm animate-in fade-in duration-300">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight]}

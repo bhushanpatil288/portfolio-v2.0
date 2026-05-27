@@ -36,18 +36,18 @@ export const ContactPage = () => {
 
       <PageWrapper>
         <div className="mb-12 text-center md:text-left">
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Get in Touch</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 mt-1">Contact Me</h1>
-          <p className="text-slate-500 mt-2 max-w-xl">
+          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Get in Touch</span>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Contact Me</h1>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             Have an idea or a project you'd like to collaborate on? Drop me a message!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white p-6 md:p-8 rounded-xl border border-slate-100 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 font-Outfit">Contact Details</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white font-Outfit">Contact Details</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 Feel free to email me directly or connect through my social profiles. I will do my best to respond within 24 hours.
               </p>
 
@@ -60,17 +60,17 @@ export const ContactPage = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-3 rounded-lg border border-slate-50 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-200 w-full"
+                      className="flex items-center gap-4 p-3 rounded-lg border border-slate-50 dark:border-slate-800 hover:border-blue-200 dark:hover:border-blue-800 hover:bg-blue-50/30 dark:hover:bg-blue-950/20 transition-all duration-200 w-full"
                     >
-                      <span className="bg-blue-50 text-blue-800 p-2.5 rounded-lg border border-blue-100 shrink-0">
+                      <span className="bg-blue-50 dark:bg-blue-950/30 text-blue-800 dark:text-blue-400 p-2.5 rounded-lg border border-blue-100 dark:border-blue-900 shrink-0">
                         <Icon size={18} />
                       </span>
                       <div className="flex-grow flex items-center justify-between min-w-0">
                         <div className="min-w-0">
-                          <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                          <span className="block text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                             {social.label}
                           </span>
-                          <span className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors truncate block">
+                          <span className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate block">
                             {social.value}
                           </span>
                         </div>

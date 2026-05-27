@@ -39,10 +39,10 @@ export const ContactForm = () => {
 
   if (submitted) {
     return (
-      <div className="bg-blue-50 border border-blue-100 rounded-xl p-8 text-center max-w-lg mx-auto shadow-sm animate-in fade-in duration-300">
-        <CheckCircle2 size={48} className="mx-auto text-blue-600 mb-4" />
-        <h3 className="text-xl font-bold text-slate-900 mb-2">Message Sent!</h3>
-        <p className="text-slate-600 mb-6">
+      <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900 rounded-xl p-8 text-center max-w-lg mx-auto shadow-sm animate-in fade-in duration-300">
+        <CheckCircle2 size={48} className="mx-auto text-blue-600 dark:text-blue-400 mb-4" />
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Message Sent!</h3>
+        <p className="text-slate-600 dark:text-slate-400 mb-6">
           Thank you for reaching out. I have received your message and will get back to you shortly.
         </p>
         <Button variant="secondary" onClick={() => setSubmitted(false)}>
@@ -53,10 +53,10 @@ export const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 bg-white p-6 md:p-8 rounded-xl border border-slate-100 shadow-sm w-full max-w-xl mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-5 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm w-full max-w-xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="name" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
             Your Name
           </label>
           <input
@@ -67,11 +67,11 @@ export const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="John Doe"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
             Your Email
           </label>
           <input
@@ -82,13 +82,13 @@ export const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="john@example.com"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 mb-1.5">
+        <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Subject
         </label>
         <input
@@ -99,12 +99,12 @@ export const ContactForm = () => {
           value={formData.subject}
           onChange={handleChange}
           placeholder="Project Collaboration"
-          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">
+        <label htmlFor="message" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
           Message
         </label>
         <textarea
@@ -115,7 +115,7 @@ export const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           placeholder="Hi, I'd like to talk about..."
-          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
+          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
         />
       </div>
 

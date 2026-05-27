@@ -110,7 +110,7 @@ export const ProjectDetail = () => {
       <PageWrapper className="pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-8">
-            <article className="markdown-content bg-white p-6 md:p-8 rounded-xl border border-slate-100 shadow-sm">
+            <article className="markdown-content bg-white dark:bg-slate-800 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-900 shadow-sm">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {project.description || '*No detailed description provided.*'}
               </ReactMarkdown>
@@ -118,10 +118,10 @@ export const ProjectDetail = () => {
 
             {project.images && project.images.length > 0 && (
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Project Gallery</h3>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Project Gallery</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.images.map((img, i) => (
-                    <div key={i} className="aspect-video bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
+                    <div key={i} className="aspect-video bg-slate-100 dark:bg-slate-800 dark:border-slate-900 rounded-lg overflow-hidden border border-slate-200">
                       <img
                         src={img.url}
                         alt={`${project.title} screenshot ${i + 1}`}
@@ -136,8 +136,8 @@ export const ProjectDetail = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
-              <h3 className="font-bold text-slate-900 mb-4 font-Outfit">Technologies Used</h3>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-900 shadow-sm">
+              <h3 className="font-bold text-slate-900 dark:text-white mb-4 font-Outfit">Technologies Used</h3>
               <div className="flex flex-wrap gap-2">
                 {project.techStack?.map((tech) => (
                   <Badge key={tech} variant="blue" className="normal-case text-xs">
@@ -147,8 +147,8 @@ export const ProjectDetail = () => {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm space-y-4">
-              <h3 className="font-bold text-slate-900 mb-3 font-Outfit">Links</h3>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-900 shadow-sm space-y-4">
+              <h3 className="font-bold text-slate-900 dark:text-white mb-3 font-Outfit">Links</h3>
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
@@ -180,7 +180,7 @@ export const ProjectDetail = () => {
         </div>
 
         {relatedProjects.length > 0 && (
-          <div className="mt-16 pt-10 border-t border-slate-100">
+          <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-700">
             <h3 className="text-2xl font-bold text-slate-900 mb-8 font-Outfit">Related Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedProjects.map((p) => (

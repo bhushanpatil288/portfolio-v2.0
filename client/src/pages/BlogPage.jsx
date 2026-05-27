@@ -31,9 +31,9 @@ export const BlogPage = () => {
 
       <PageWrapper>
         <div className="mb-12 text-center md:text-left">
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Publications</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 mt-1">My Blog</h1>
-          <p className="text-slate-500 mt-2 max-w-xl">
+          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Publications</span>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">My Blog</h1>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             Writing about web development, engineering best practices, and lessons learned.
           </p>
         </div>
@@ -74,10 +74,10 @@ export const BlogPage = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 line-clamp-2 hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 line-clamp-2 hover:text-blue-600 dark:text-white transition-colors">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
 
@@ -93,7 +93,7 @@ export const BlogPage = () => {
 
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-400 group/link transition-colors mt-auto"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 group/link transition-colors mt-auto"
                   >
                     Read Article
                     <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
