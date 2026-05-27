@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-200 rounded hover:bg-blue-400 transition-colors;
+}
+
+/* Markdown formatting custom classes */
+.markdown-content h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-blue-900 border-b pb-2;
+}
+.markdown-content h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-blue-800;
+}
+.markdown-content h3 {
+  @apply text-xl font-semibold mt-4 mb-2 text-blue-800;
+}
+.markdown-content p {
+  @apply text-slate-700 leading-relaxed mb-4;
+}
+.markdown-content ul {
+  @apply pl-6 mb-4 list-disc text-slate-700;
+}
+.markdown-content ol {
+  @apply pl-6 mb-4 list-decimal text-slate-700;
+}
+.markdown-content li {
+  @apply mb-2;
+}
+.markdown-content code {
+  @apply bg-slate-100 text-blue-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+.markdown-content pre {
+  @apply bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto my-4;
+}
+.markdown-content pre code {
+  @apply bg-transparent text-slate-100 p-0 text-sm;
+}
+.markdown-content blockquote {
+  @apply border-l-4 border-blue-400 pl-4 italic my-4 text-slate-600;
+}
+.markdown-content a {
+  @apply text-blue-600 hover:text-blue-400 font-medium transition-colors hover:underline;
+}
+.markdown-content img {
+  @apply rounded-lg my-4 max-w-full h-auto shadow-sm;
+}
+.markdown-content table {
+  @apply w-full border-collapse my-4 text-sm;
+}
+.markdown-content th {
+  @apply border bg-slate-100 px-4 py-2 text-left font-semibold text-slate-700;
+}
+.markdown-content td {
+  @apply border px-4 py-2 text-slate-600;
+}
