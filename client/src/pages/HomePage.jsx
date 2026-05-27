@@ -27,12 +27,12 @@ export const HomePage = () => {
         <HeroSection />
       </PageWrapper>
       
-      <SkillsStrip />
-      
       <PageWrapper className="py-4 md:py-6">
         <FeaturedProjects />
       </PageWrapper>
 
+      <SkillsStrip />
+      
       <PageWrapper className="py-4 md:py-6">
         <TestimonialsSection />
       </PageWrapper>
