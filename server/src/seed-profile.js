@@ -56,7 +56,7 @@ I'm currently pursuing my MCA (2025–2027) and sharpening my skills at Red & Wh
         desc: 'Built strong foundations in communication, critical thinking, and self-directed learning — then pivoted fully into software development.'
       }
     ],
-    resumeUrl: '',
+    resumeUrl: 'https://drive.google.com/file/d/1jzGAyXGA4L1uU-HYScIJeMnBmaSQlVS9/view?usp=sharing',
     socials: {
       github: 'https://github.com/bhushanpatil288',
       linkedin: 'https://www.linkedin.com/in/bhushan-patil-990530223/',
@@ -64,7 +64,7 @@ I'm currently pursuing my MCA (2025–2027) and sharpening my skills at Red & Wh
       email: ''
     },
     avatar: {
-      url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=300',
+      url: 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779881508/profile_a3nwva.png',
       publicId: 'seed_avatar'
     }
   });

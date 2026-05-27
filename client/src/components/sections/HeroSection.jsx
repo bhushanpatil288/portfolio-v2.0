@@ -53,7 +53,7 @@ export const HeroSection = () => {
         <div className="relative">
           <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 blur opacity-30 animate-pulse"></div>
           <img
-            src={profile?.avatar?.url || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=300'}
+            src={profile?.avatar?.url || 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779881508/profile_a3nwva.png'}
             alt={profile?.name || 'Developer'}
             className="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white shadow-lg"
           />
