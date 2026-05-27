@@ -11,6 +11,15 @@ export const NotFoundPage = () => {
       <Helmet>
         <title>Portfolio | Page Not Found</title>
         <meta name="description" content="Oops! The page you are looking for does not exist." />
+        <meta property="og:title" content="Portfolio | Page Not Found" />
+        <meta property="og:description" content="Oops! The page you are looking for does not exist." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | Page Not Found" />
+        <meta name="twitter:description" content="Oops! The page you are looking for does not exist." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
       </Helmet>
 
       <PageWrapper className="flex flex-col justify-center items-center text-center py-20 px-4 min-h-[70vh]">

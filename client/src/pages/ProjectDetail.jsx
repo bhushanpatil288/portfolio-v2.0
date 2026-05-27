@@ -60,6 +60,15 @@ export const ProjectDetail = () => {
       <Helmet>
         <title>{`Project | ${project.title}`}</title>
         <meta name="description" content={project.shortDesc} />
+        <meta property="og:title" content={`Project | ${project.title}`} />
+        <meta property="og:description" content={project.shortDesc} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content={project.coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200'} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Project | ${project.title}`} />
+        <meta name="twitter:description" content={project.shortDesc} />
+        <meta name="twitter:image" content={project.coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200'} />
       </Helmet>
 
       <div className="w-full h-[40vh] md:h-[50vh] relative bg-slate-900 overflow-hidden">

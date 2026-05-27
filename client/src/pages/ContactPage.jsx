@@ -23,6 +23,15 @@ export const ContactPage = () => {
       <Helmet>
         <title>Portfolio | Contact Me</title>
         <meta name="description" content="Get in touch for software projects, freelance work, or technical consulting inquiries." />
+        <meta property="og:title" content="Portfolio | Contact Me" />
+        <meta property="og:description" content="Get in touch for software projects, freelance work, or technical consulting inquiries." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | Contact Me" />
+        <meta name="twitter:description" content="Get in touch for software projects, freelance work, or technical consulting inquiries." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
       </Helmet>
 
       <PageWrapper>
