@@ -4,6 +4,7 @@ import { PageWrapper } from '../components/layout/PageWrapper.jsx';
 import { HeroSection } from '../components/sections/HeroSection.jsx';
 import { FeaturedProjects } from '../components/sections/FeaturedProjects.jsx';
 import { SkillsStrip } from '../components/sections/SkillsStrip.jsx';
+import { TestimonialsSection } from '../components/sections/TestimonialsSection.jsx';
 
 export const HomePage = () => {
   return (
@@ -30,6 +31,10 @@ export const HomePage = () => {
       
       <PageWrapper className="py-4 md:py-6">
         <FeaturedProjects />
+      </PageWrapper>
+
+      <PageWrapper className="py-4 md:py-6">
+        <TestimonialsSection />
       </PageWrapper>
     </>
   );
