@@ -14,8 +14,9 @@ export const FeaturedProjects = () => {
     <section className="py-16 border-b border-slate-100 dark:border-slate-800">
       <div className="flex justify-between items-end mb-10">
         <div>
-          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Portfolio Portfolio</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Featured Projects</h2>
+          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Featured Work</span>
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">Featured Projects</h2>
+          <div className="w-12 h-1 gradient-line rounded-full mt-2" />
         </div>
         <Link to="/projects" className="hidden sm:block">
           <Button variant="ghost" className="gap-1.5 text-blue-600 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300">

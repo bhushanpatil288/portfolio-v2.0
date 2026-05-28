@@ -16,14 +16,17 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-950 text-slate-400 py-10 mt-auto border-t border-slate-900">
+    <footer className="relative bg-slate-950 text-slate-400 py-10 mt-auto">
+      {/* Gradient top edge */}
+      <div className="absolute top-0 left-0 right-0 h-px gradient-line" />
+
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
-          <p className="text-white font-bold text-lg mb-1">{profile?.name || 'Developer Name'}</p>
+          <p className="text-white font-bold text-lg mb-1 font-heading">{profile?.name || 'Developer Name'}</p>
           <p className="text-sm">{profile?.title || 'Full Stack Developer'}</p>
         </div>
 
-        <div className="flex space-x-6">
+        <div className="flex space-x-5">
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
@@ -32,7 +35,7 @@ export const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors duration-200"
+                className="p-2 rounded-lg hover:text-white hover:bg-slate-800 transition-all duration-200"
                 aria-label={social.label}
               >
                 <Icon size={20} />
@@ -41,7 +44,7 @@ export const Footer = () => {
           })}
         </div>
 
-        <div className="text-sm text-slate-400">
+        <div className="text-sm text-slate-500">
           © {currentYear} {profile?.name || 'Developer Name'}. All rights reserved.
         </div>
       </div>

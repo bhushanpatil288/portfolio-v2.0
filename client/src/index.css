@@ -108,3 +108,51 @@ h6 {
   background-position: 0 0;
   opacity: 1;
 }
+
+/* Smooth scroll globally */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, #185FA5 0%, #6366f1 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, #85B7EB 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Gradient accent line */
+.gradient-line {
+  background: linear-gradient(90deg, #185FA5, #6366f1, #8b5cf6);
+}
+
+/* Subtle glow on hover */
+.hover-glow:hover {
+  box-shadow: 0 8px 30px rgba(24, 95, 165, 0.12);
+}
+.dark .hover-glow:hover {
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15);
+}

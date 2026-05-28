@@ -33,10 +33,11 @@ export const BlogPage = () => {
       <PageWrapper>
         <div className="mb-12 text-center md:text-left">
           <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Publications</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">My Blog</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">My Blog</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             Writing about web development, engineering best practices, and lessons learned.
           </p>
+          <div className="w-16 h-1 gradient-line rounded-full mt-3 mx-auto md:mx-0" />
         </div>
 
         {isLoading ? (

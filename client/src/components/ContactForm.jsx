@@ -53,7 +53,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm w-full max-w-xl mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-5 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm w-full max-w-xl mx-auto hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">

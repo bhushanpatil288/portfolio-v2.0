@@ -21,10 +21,11 @@ export const TestimonialsSection = () => {
     <section className="py-16 border-b border-slate-100 dark:border-slate-800">
       <div className="mb-10 text-center md:text-left">
         <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Endorsements</span>
-        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">What Mentors Say</h2>
+        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">What Mentors Say</h2>
         <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
           Feedback and recommendations from professionals who have guided me in my development journey.
         </p>
+        <div className="w-12 h-1 gradient-line rounded-full mt-3 mx-auto md:mx-0" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

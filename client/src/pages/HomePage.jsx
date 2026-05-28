@@ -23,9 +23,7 @@ export const HomePage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
       </Helmet>
       
-      <PageWrapper className="py-4 md:py-6">
-        <HeroSection />
-      </PageWrapper>
+      <HeroSection />
       
       <PageWrapper className="py-4 md:py-6">
         <FeaturedProjects />

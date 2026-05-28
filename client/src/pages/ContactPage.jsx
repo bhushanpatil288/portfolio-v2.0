@@ -37,15 +37,16 @@ export const ContactPage = () => {
       <PageWrapper>
         <div className="mb-12 text-center md:text-left">
           <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Get in Touch</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Contact Me</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">Contact Me</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             Have an idea or a project you'd like to collaborate on? Drop me a message!
           </p>
+          <div className="w-16 h-1 gradient-line rounded-full mt-3 mx-auto md:mx-0" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6 hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white font-Outfit">Contact Details</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 Feel free to email me directly or connect through my social profiles. I will do my best to respond within 24 hours.

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
 // Layouts & Elements
 import { Navbar } from './components/layout/Navbar.jsx';
@@ -36,8 +36,16 @@ const CategoriesAdmin = lazy(() => import('./admin/categories/CategoriesAdmin.js
 // Public Layout wrapper containing common header and footer
 const PublicLayout = () => {
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Scroll progress indicator */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] gradient-line origin-left z-[9999]"
+        style={{ scaleX }}
+      />
       <Navbar />
       <main className="flex-grow flex flex-col">
         <AnimatePresence mode="wait">

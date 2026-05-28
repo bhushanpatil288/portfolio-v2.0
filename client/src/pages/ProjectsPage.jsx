@@ -58,10 +58,11 @@ export const ProjectsPage = () => {
       <PageWrapper>
         <div className="mb-10 text-center md:text-left">
           <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Showcase</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">My Projects</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">My Projects</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             A gallery of applications and systems I have designed, engineered, and shipped.
           </p>
+          <div className="w-16 h-1 gradient-line rounded-full mt-3 mx-auto md:mx-0" />
         </div>
 
         <FilterBar

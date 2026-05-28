@@ -59,16 +59,17 @@ export const AboutPage = () => {
       <PageWrapper>
         <div className="mb-12 text-center md:text-left">
           <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm">Background</span>
-          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1">About Me</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mt-1 font-heading">About Me</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl">
             My journey, skills, and professional experience in software engineering.
           </p>
+          <div className="w-16 h-1 gradient-line rounded-full mt-3 mx-auto md:mx-0" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit">My Story</h2>
+            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-850 shadow-sm hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 font-heading">My Story</h2>
               <div className="markdown-content">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {profile.bio || '*No bio description provided.*'}
@@ -76,8 +77,8 @@ export const AboutPage = () => {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 font-Outfit">Professional Journey</h2>
+            <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-850 shadow-sm hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 font-heading">Professional Journey</h2>
               <div className="relative border-l-2 border-slate-100 dark:border-slate-700 ml-4 space-y-8">
                 {profile.timeline?.map((item, index) => (
                   <div key={index} className="relative pl-8">
@@ -99,8 +100,8 @@ export const AboutPage = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit flex items-center gap-2">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-heading flex items-center gap-2">
                 <Award className="text-blue-600 dark:text-blue-400" size={20} />
                 Technical Competence
               </h2>
@@ -113,8 +114,8 @@ export const AboutPage = () => {
                     </div>
                     <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
                       <div
-                        className="bg-blue-600 dark:bg-blue-500 h-full rounded-full transition-all duration-500"
-                        style={{ width: `${(skill.level / 5) * 100}%` }}
+                        className="h-full rounded-full transition-all duration-500"
+                        style={{ width: `${(skill.level / 5) * 100}%`, background: 'linear-gradient(90deg, #185FA5, #6366f1)' }}
                       />
                     </div>
                   </div>
@@ -123,7 +124,7 @@ export const AboutPage = () => {
             </div>
 
             {/* What I'm Learning Now Box */}
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm relative overflow-hidden animate-fade-in">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800/80 shadow-sm relative overflow-hidden hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
               {/* Pulse Indicator */}
               {profile.currentlyLearning?.length > 0 && (
                 <div className="absolute top-6 right-6 flex items-center gap-1.5 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 text-xs px-2.5 py-1 rounded-full font-bold">
@@ -135,7 +136,7 @@ export const AboutPage = () => {
                 </div>
               )}
 
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit flex items-center gap-2">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-heading flex items-center gap-2">
                 <BookOpen className="text-blue-600 dark:text-blue-400" size={20} />
                 Learning Now
               </h2>
@@ -164,8 +165,8 @@ export const AboutPage = () => {
         </div>
 
         {/* GitHub Contributions Graph */}
-        <div className="mt-12 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-Outfit flex items-center gap-2">
+        <div className="mt-12 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-850 shadow-sm hover:shadow-md hover:border-blue-100 dark:hover:border-blue-900/30 transition-all duration-300">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 font-heading flex items-center gap-2">
             <Github className="text-blue-600 dark:text-blue-400" size={22} />
             GitHub Code Activity
           </h3>
