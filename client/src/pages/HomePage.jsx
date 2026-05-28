@@ -10,16 +10,16 @@ export const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Portfolio | Home</title>
-        <meta name="description" content="Personal portfolio website showing featured software projects, programming skills, and technical blog posts." />
-        <meta property="og:title" content="Bhushan Patil | Full Stack MERN Developer Portfolio" />
-        <meta property="og:description" content="Portfolio of Bhushan Patil, a Full Stack MERN Engineer specializing in React, Node.js, and high-performance web applications. View projects, read articles, and get in touch." />
+        <title>Bhushan Patil | MERN Stack Developer in Surat, Gujarat</title>
+        <meta name="description" content="Portfolio of Bhushan Patil, a Full Stack MERN Developer based in Surat, Gujarat. Specializing in React, Node.js, Express, MongoDB, and modern web engineering." />
+        <meta property="og:title" content="Bhushan Patil | MERN Stack Developer in Surat, Gujarat" />
+        <meta property="og:description" content="Portfolio of Bhushan Patil, a Full Stack MERN Developer based in Surat, Gujarat. Specializing in React, Node.js, Express, MongoDB, and modern web engineering." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />
         <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bhushan Patil | Full Stack MERN Developer Portfolio" />
-        <meta name="twitter:description" content="Portfolio of Bhushan Patil, a Full Stack MERN Engineer specializing in React, Node.js, and high-performance web applications. View projects, read articles, and get in touch." />
+        <meta name="twitter:title" content="Bhushan Patil | MERN Stack Developer in Surat, Gujarat" />
+        <meta name="twitter:description" content="Portfolio of Bhushan Patil, a Full Stack MERN Developer based in Surat, Gujarat. Specializing in React, Node.js, Express, MongoDB, and modern web engineering." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" />
       </Helmet>
 

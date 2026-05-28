@@ -43,16 +43,16 @@ export const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>Portfolio | About Me</title>
-        <meta name="description" content={`Read the professional bio, timeline, and core technical skills of developer ${profile.name}.`} />
-        <meta property="og:title" content="Portfolio | About Me" />
-        <meta property="og:description" content={`Read the professional bio, timeline, and core technical skills of developer ${profile.name}.`} />
+        <title>About Bhushan Patil | MERN Stack Developer based in Surat</title>
+        <meta name="description" content="Read about Bhushan Patil, a software engineer and MERN Stack Developer based in Surat, Gujarat. Learn about his career timeline, skills, and coding background." />
+        <meta property="og:title" content="About Bhushan Patil | MERN Stack Developer based in Surat" />
+        <meta property="og:description" content="Read about Bhushan Patil, a software engineer and MERN Stack Developer based in Surat, Gujarat. Learn about his career timeline, skills, and coding background." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content={window.location.href} />
         <meta property="og:image" content={profile.avatar?.url || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Portfolio | About Me" />
-        <meta name="twitter:description" content={`Read the professional bio, timeline, and core technical skills of developer ${profile.name}.`} />
+        <meta name="twitter:title" content="About Bhushan Patil | MERN Stack Developer based in Surat" />
+        <meta name="twitter:description" content="Read about Bhushan Patil, a software engineer and MERN Stack Developer based in Surat, Gujarat. Learn about his career timeline, skills, and coding background." />
         <meta name="twitter:image" content={profile.avatar?.url || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200'} />
       </Helmet>
 

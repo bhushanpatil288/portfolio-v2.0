@@ -17,16 +17,16 @@ export const BlogPage = () => {
   return (
     <>
       <Helmet>
-        <title>Portfolio | Blog</title>
-        <meta name="description" content="Read developer articles, coding tutorials, and technical insights on MERN and modern software architecture." />
-        <meta property="og:title" content="Portfolio | Blog" />
-        <meta property="og:description" content="Read developer articles, coding tutorials, and technical insights on MERN and modern software architecture." />
+        <title>Technical Blog & Tutorials | Bhushan Patil</title>
+        <meta name="description" content="Read articles, software guides, and technical tutorials on MERN stack, JavaScript, and database optimization by Bhushan Patil in Surat, Gujarat." />
+        <meta property="og:title" content="Technical Blog & Tutorials | Bhushan Patil" />
+        <meta property="og:description" content="Read articles, software guides, and technical tutorials on MERN stack, JavaScript, and database optimization by Bhushan Patil in Surat, Gujarat." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />
         <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Portfolio | Blog" />
-        <meta name="twitter:description" content="Read developer articles, coding tutorials, and technical insights on MERN and modern software architecture." />
+        <meta name="twitter:title" content="Technical Blog & Tutorials | Bhushan Patil" />
+        <meta name="twitter:description" content="Read articles, software guides, and technical tutorials on MERN stack, JavaScript, and database optimization by Bhushan Patil in Surat, Gujarat." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" />
       </Helmet>
 
