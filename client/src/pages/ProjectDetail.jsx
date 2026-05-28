@@ -77,6 +77,8 @@ export const ProjectDetail = () => {
           src={cloudinaryUrl(project.coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200', { width: 1200 })}
           alt={project.title}
           className="w-full h-full object-cover opacity-60"
+          width={1200}
+          height={600}
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
@@ -128,6 +130,8 @@ export const ProjectDetail = () => {
                         src={cloudinaryUrl(img.url, { width: 800 })}
                         alt={`${project.title} screenshot ${i + 1}`}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        width={800}
+                        height={450}
                         loading="lazy"
                         decoding="async"
                       />

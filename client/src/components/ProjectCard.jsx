@@ -15,6 +15,8 @@ export const ProjectCard = ({ project }) => {
           src={cloudinaryUrl(coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800', { width: 600 })}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          width={600}
+          height={338}
           loading="lazy"
           decoding="async"
         />

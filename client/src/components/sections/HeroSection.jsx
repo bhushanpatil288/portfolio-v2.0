@@ -94,6 +94,8 @@ export const HeroSection = () => {
             src={cloudinaryUrl(profile?.avatar?.url || 'https://res.cloudinary.com/dsyxsipwf/image/upload/v1779881508/profile_a3nwva.png', { width: 300 })}
             alt={profile?.name || 'Developer'}
             className="relative w-48 h-48 md:w-64 md:h-64 bg-blue-950 rounded-full object-cover border-4 border-white dark:border-slate-900 shadow-lg"
+            width={256}
+            height={256}
             decoding="async"
           />
         </div>

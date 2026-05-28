@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Layouts
+// Layouts & Elements
 import { Navbar } from './components/layout/Navbar.jsx';
 import { Footer } from './components/layout/Footer.jsx';
-import { AdminLayout } from './admin/AdminLayout.jsx';
 import { BackToTop } from './components/ui/BackToTop.jsx';
+import { Spinner } from './components/ui/Spinner.jsx';
 
-// Public Pages
+// Eagerly loaded public home page for immediate LCP
 import { HomePage } from './pages/HomePage.jsx';
-import { ProjectsPage } from './pages/ProjectsPage.jsx';
-import { ProjectDetail } from './pages/ProjectDetail.jsx';
-import { AboutPage } from './pages/AboutPage.jsx';
-import { ContactPage } from './pages/ContactPage.jsx';
-import { BlogPage } from './pages/BlogPage.jsx';
-import { BlogPostPage } from './pages/BlogPostPage.jsx';
-import { NotFoundPage } from './pages/NotFoundPage.jsx';
 
-// Admin Pages
-import { LoginPage } from './admin/LoginPage.jsx';
-import { DashboardPage } from './admin/DashboardPage.jsx';
-import { ProjectsAdmin } from './admin/projects/ProjectsAdmin.jsx';
-import { ProjectForm } from './admin/projects/ProjectForm.jsx';
-import { AboutAdmin } from './admin/about/AboutAdmin.jsx';
-import { BlogAdmin } from './admin/blog/BlogAdmin.jsx';
-import { PostForm } from './admin/blog/PostForm.jsx';
-import { CategoriesAdmin } from './admin/categories/CategoriesAdmin.jsx';
+// Lazy Loaded Pages
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage.jsx'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail.jsx'));
+const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
+const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
+
+// Lazy Loaded Admin Pages & Layouts
+const AdminLayout = lazy(() => import('./admin/AdminLayout.jsx'));
+const LoginPage = lazy(() => import('./admin/LoginPage.jsx'));
+const DashboardPage = lazy(() => import('./admin/DashboardPage.jsx'));
+const ProjectsAdmin = lazy(() => import('./admin/projects/ProjectsAdmin.jsx'));
+const ProjectForm = lazy(() => import('./admin/projects/ProjectForm.jsx'));
+const AboutAdmin = lazy(() => import('./admin/about/AboutAdmin.jsx'));
+const BlogAdmin = lazy(() => import('./admin/blog/BlogAdmin.jsx'));
+const PostForm = lazy(() => import('./admin/blog/PostForm.jsx'));
+const CategoriesAdmin = lazy(() => import('./admin/categories/CategoriesAdmin.jsx'));
 
 // Public Layout wrapper containing common header and footer
 const PublicLayout = () => {
@@ -45,7 +48,13 @@ const PublicLayout = () => {
             transition={{ duration: 0.2 }}
             className="flex-grow flex flex-col"
           >
-            <Outlet />
+            <Suspense fallback={
+              <div className="flex-grow flex items-center justify-center min-h-[50vh]">
+                <Spinner size="lg" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -73,35 +82,41 @@ export const App = () => {
         }}
       />
       
-      <Routes>
-        {/* Public Routes */}
-        <Route element={<PublicLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
+          <Spinner size="lg" />
+        </div>
+      }>
+        <Routes>
+          {/* Public Routes */}
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
 
-        {/* Admin Login */}
-        <Route path="/admin/login" element={<LoginPage />} />
+          {/* Admin Login */}
+          <Route path="/admin/login" element={<LoginPage />} />
 
-        {/* Protected Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<DashboardPage />} />
-          <Route path="projects" element={<ProjectsAdmin />} />
-          <Route path="projects/new" element={<ProjectForm />} />
-          <Route path="projects/edit/:id" element={<ProjectForm />} />
-          <Route path="about" element={<AboutAdmin />} />
-          <Route path="blog" element={<BlogAdmin />} />
-          <Route path="blog/new" element={<PostForm />} />
-          <Route path="blog/edit/:id" element={<PostForm />} />
-          <Route path="categories" element={<CategoriesAdmin />} />
-        </Route>
-      </Routes>
+          {/* Protected Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="projects" element={<ProjectsAdmin />} />
+            <Route path="projects/new" element={<ProjectForm />} />
+            <Route path="projects/edit/:id" element={<ProjectForm />} />
+            <Route path="about" element={<AboutAdmin />} />
+            <Route path="blog" element={<BlogAdmin />} />
+            <Route path="blog/new" element={<PostForm />} />
+            <Route path="blog/edit/:id" element={<PostForm />} />
+            <Route path="categories" element={<CategoriesAdmin />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 };

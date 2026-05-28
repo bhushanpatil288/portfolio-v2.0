@@ -97,6 +97,8 @@ export const BlogPostPage = () => {
             src={cloudinaryUrl(post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000', { width: 1200 })}
             alt={post.title}
             className="w-full h-full object-cover"
+            width={1200}
+            height={600}
             decoding="async"
           />
         </div>

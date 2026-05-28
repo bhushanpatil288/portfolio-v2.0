@@ -56,6 +56,8 @@ export const BlogPage = () => {
                     src={cloudinaryUrl(post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800', { width: 600 })}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                    width={600}
+                    height={300}
                     loading="lazy"
                     decoding="async"
                   />
