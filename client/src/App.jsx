@@ -8,6 +8,7 @@ import { Navbar } from './components/layout/Navbar.jsx';
 import { Footer } from './components/layout/Footer.jsx';
 import { BackToTop } from './components/ui/BackToTop.jsx';
 import { Spinner } from './components/ui/Spinner.jsx';
+import { ChatbotWidget } from './components/ui/ChatbotWidget.jsx';
 
 // Eagerly loaded public home page for immediate LCP
 import { HomePage } from './pages/HomePage.jsx';
@@ -60,6 +61,7 @@ const PublicLayout = () => {
       </main>
       <Footer />
       <BackToTop />
+      <ChatbotWidget />
     </div>
   );
 };

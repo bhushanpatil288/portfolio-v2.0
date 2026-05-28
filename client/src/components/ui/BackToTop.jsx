@@ -37,7 +37,7 @@ export const BackToTop = () => {
           exit={{ opacity: 0, scale: 0.5, y: 15 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 border border-blue-500/20"
+          className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-40 p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 border border-blue-500/20"
           aria-label="Scroll back to top"
         >
           <ArrowUp size={20} className="stroke-[2.5]" />

@@ -19,6 +19,7 @@ An advanced, feature-rich, full-stack monorepo application designed for showcasi
 
 ### 🌟 Public Portfolio Interface
 - **Dynamic Hero Section**: Interactive introduction featuring a customized typing animation (`react-type-animation`).
+- **Interactive Recruiter AI Bot**: A floating chatbot widget that answers recruiter inquiries regarding skills, projects, education, and contact channels in real time. Powered by Gemini 1.5 Flash (free tier) or falls back to a smart, contextual local mock responder when offline.
 - **Interactive Journey Timeline**: A visual chronicle highlighting educational milestones, MCA (Master of Computer Applications) coursework, and software training experiences.
 - **Projects Catalog**: Custom showcase with real-time text-based search, category filters, and detailed view pages with integrated Markdown rendering and slide-in image/screenshot carousels.
 - **GitHub Integration**: Embeds a live GitHub contribution calendar (`react-github-calendar`) to display open-source activity in real time.
@@ -99,6 +100,7 @@ Here is a list of the core routes exposed by the backend API:
 | **`/api/upload/image`** | `POST` | Protected (Admin) | Uploads single image to target storage |
 | **`/api/upload/image/:id`**| `DELETE`| Protected (Admin) | Deletes uploaded image by its public cloud ID |
 | **`/api/contact`** | `POST` | Public | Submits contact request, triggers email dispatch |
+| **`/api/ai/chat`** | `POST` | Public | Submits visitor/recruiter query to AI chatbot (Gemini or Mock) |
 
 ---
 
@@ -122,6 +124,9 @@ JWT_EXPIRES_IN=7d
 
 # Frontend Origin URL (for CORS setup)
 CLIENT_URL=http://localhost:5173
+
+# Optional Gemini API Key (Falls back to local mock chatbot if empty/missing)
+GEMINI_API_KEY=your_free_gemini_api_key_here
 
 # Optional Cloudinary Configuration (Falls back to local disk if keys are empty/mocked)
 CLOUDINARY_CLOUD_NAME=your_cloud_name

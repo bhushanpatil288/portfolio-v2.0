@@ -11,6 +11,7 @@ import blogRoutes from './routes/blog.routes.js';
 import categoryRoutes from './routes/categories.routes.js';
 import uploadRoutes from './routes/upload.routes.js';
 import contactRoutes from './routes/contact.routes.js';
+import aiRoutes from './routes/ai.routes.js';
 
 import errorHandler from './middleware/errorHandler.js';
 
@@ -43,6 +44,7 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.use('/api/*', (req, res, next) => {
   res.status(404).json({ success: false, message: 'API Route Not Found' });
