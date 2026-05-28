@@ -48,10 +48,10 @@ export const TestimonialsSection = () => {
                 loading="lazy"
               />
               <div>
-                <h4 className="font-bold text-slate-900 dark:text-white text-base">
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">
                   {t.name}
-                </h4>
-                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
                   {t.role}
                 </p>
               </div>

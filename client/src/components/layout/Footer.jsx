@@ -9,10 +9,10 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, url: profile?.socials?.github || 'https://github.com' },
-    { icon: Linkedin, url: profile?.socials?.linkedin || 'https://linkedin.com' },
-    { icon: Twitter, url: profile?.socials?.twitter || 'https://twitter.com' },
-    { icon: Mail, url: profile?.socials?.email ? `mailto:${profile.socials.email}` : '#' }
+    { icon: Github, url: profile?.socials?.github || 'https://github.com', label: 'GitHub Profile' },
+    { icon: Linkedin, url: profile?.socials?.linkedin || 'https://linkedin.com', label: 'LinkedIn Profile' },
+    { icon: Twitter, url: profile?.socials?.twitter || 'https://twitter.com', label: 'Twitter Profile' },
+    { icon: Mail, url: profile?.socials?.email ? `mailto:${profile.socials.email}` : '#', label: 'Email Address' }
   ];
 
   return (
@@ -33,6 +33,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors duration-200"
+                aria-label={social.label}
               >
                 <Icon size={20} />
               </a>
@@ -40,7 +41,7 @@ export const Footer = () => {
           })}
         </div>
 
-        <div className="text-sm text-slate-500">
+        <div className="text-sm text-slate-400">
           © {currentYear} {profile?.name || 'Developer Name'}. All rights reserved.
         </div>
       </div>

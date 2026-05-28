@@ -67,7 +67,7 @@ export const ContactPage = () => {
                       </span>
                       <div className="flex-grow flex items-center justify-between min-w-0">
                         <div className="min-w-0">
-                          <span className="block text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                          <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             {social.label}
                           </span>
                           <span className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate block">

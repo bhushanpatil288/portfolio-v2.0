@@ -9,9 +9,9 @@ export const Spinner = ({ className, size = 'md' }) => {
   };
 
   return (
-    <div className="flex justify-center items-center py-4">
+    <div className="flex justify-center items-center py-4" role="status" aria-label="Loading">
       <div className={cn(
-        'animate-spin rounded-full border-t-blue-600 border-blue-100',
+        'animate-spin rounded-full border-t-blue-600 border-slate-200 dark:border-slate-800',
         sizes[size],
         className
       )}></div>

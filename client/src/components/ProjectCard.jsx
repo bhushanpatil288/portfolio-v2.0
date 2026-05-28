@@ -62,7 +62,7 @@ export const ProjectCard = ({ project }) => {
             <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
           </Link>
           {typeof views === 'number' && (
-            <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-400 dark:text-slate-500">
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 dark:text-slate-400">
               <Eye size={13} />
               {views.toLocaleString()} views
             </span>

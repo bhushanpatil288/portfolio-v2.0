@@ -88,7 +88,7 @@ export const AboutPage = () => {
                       <span className="text-sm font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 px-2 py-0.5 rounded border border-blue-100 dark:border-blue-900">
                         {item.year}
                       </span>
-                      <h4 className="text-lg font-bold text-slate-900 dark:text-white">{item.role}</h4>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">{item.role}</h3>
                     </div>
                     <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">{item.org}</p>
                     <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.desc}</p>
@@ -109,7 +109,7 @@ export const AboutPage = () => {
                   <div key={skill.name} className="space-y-1.5">
                     <div className="flex justify-between text-sm">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{skill.name}</span>
-                      <span className="text-slate-400 dark:text-slate-500 text-xs font-bold">Level {skill.level}/5</span>
+                      <span className="text-slate-500 dark:text-slate-400 text-xs font-bold">Level {skill.level}/5</span>
                     </div>
                     <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
                       <div
@@ -148,7 +148,7 @@ export const AboutPage = () => {
                         <span className="p-1.5 bg-blue-50 dark:bg-blue-900/30 rounded text-blue-600 dark:text-blue-400">
                           <Terminal size={14} />
                         </span>
-                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">{item.title}</h4>
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">{item.title}</h3>
                       </div>
                       <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                         {item.description}
@@ -156,7 +156,7 @@ export const AboutPage = () => {
                     </div>
                   ))
                 ) : (
-                  <p className="text-xs text-slate-400 italic">No current learning topics listed.</p>
+                  <p className="text-xs text-slate-500 italic">No current learning topics listed.</p>
                 )}
               </div>
             </div>
