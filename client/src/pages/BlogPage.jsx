@@ -8,6 +8,7 @@ import { Spinner } from '../components/ui/Spinner.jsx';
 import { useBlogPosts } from '../hooks/useBlogPosts.js';
 import { formatDate } from '../utils/formatDate.js';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import { cloudinaryUrl } from '../utils/cloudinaryUrl.js';
 
 export const BlogPage = () => {
   const { data, isLoading, error } = useBlogPosts({ published: true });
@@ -52,10 +53,11 @@ export const BlogPage = () => {
               <Card key={post._id} className="flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
                 <div className="aspect-[2/1] overflow-hidden bg-slate-100 relative">
                   <img
-                    src={post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800'}
+                    src={cloudinaryUrl(post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800', { width: 600 })}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-3 right-3">
                     <Badge variant="blue">Article</Badge>

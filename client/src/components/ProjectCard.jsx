@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card } from './ui/Card.jsx';
 import { Badge } from './ui/Badge.jsx';
 import { ArrowRight, Eye } from 'lucide-react';
+import { cloudinaryUrl } from '../utils/cloudinaryUrl.js';
 
 export const ProjectCard = ({ project }) => {
   const { title, slug, shortDesc, coverImage, techStack, categories, views } = project;
@@ -11,10 +12,11 @@ export const ProjectCard = ({ project }) => {
     <Card className="flex flex-col h-full">
       <div className="relative aspect-video overflow-hidden bg-slate-100 group">
         <img
-          src={coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800'}
+          src={cloudinaryUrl(coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800', { width: 600 })}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           loading="lazy"
+          decoding="async"
         />
         {categories && categories.length > 0 && (
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">

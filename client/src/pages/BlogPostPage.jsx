@@ -11,6 +11,7 @@ import { Badge } from '../components/ui/Badge.jsx';
 import { Button } from '../components/ui/Button.jsx';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { formatDate } from '../utils/formatDate.js';
+import { cloudinaryUrl } from '../utils/cloudinaryUrl.js';
 import 'highlight.js/styles/github-dark.css';
 
 export const BlogPostPage = () => {
@@ -93,9 +94,10 @@ export const BlogPostPage = () => {
 
         <div className="aspect-[2/1] rounded-xl overflow-hidden bg-slate-100 border border-slate-100 dark:border-slate-900 shadow-sm mb-10">
           <img
-            src={post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000'}
+            src={cloudinaryUrl(post.coverImage?.url || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000', { width: 1200 })}
             alt={post.title}
             className="w-full h-full object-cover"
+            decoding="async"
           />
         </div>
 

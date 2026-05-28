@@ -11,6 +11,7 @@ import { Badge } from '../components/ui/Badge.jsx';
 import { Button } from '../components/ui/Button.jsx';
 import { ProjectCard } from '../components/ProjectCard.jsx';
 import { ExternalLink, Github, ArrowLeft, Eye } from 'lucide-react';
+import { cloudinaryUrl } from '../utils/cloudinaryUrl.js';
 
 export const ProjectDetail = () => {
   const { slug } = useParams();
@@ -73,9 +74,10 @@ export const ProjectDetail = () => {
 
       <div className="w-full h-[40vh] md:h-[50vh] relative bg-slate-900 overflow-hidden">
         <img
-          src={project.coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200'}
+          src={cloudinaryUrl(project.coverImage?.url || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200', { width: 1200 })}
           alt={project.title}
           className="w-full h-full object-cover opacity-60"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 max-w-6xl mx-auto px-4 pb-8 md:pb-12 text-white">
@@ -123,10 +125,11 @@ export const ProjectDetail = () => {
                   {project.images.map((img, i) => (
                     <div key={i} className="aspect-video bg-slate-100 dark:bg-slate-800 dark:border-slate-900 rounded-lg overflow-hidden border border-slate-200">
                       <img
-                        src={img.url}
+                        src={cloudinaryUrl(img.url, { width: 800 })}
                         alt={`${project.title} screenshot ${i + 1}`}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   ))}
