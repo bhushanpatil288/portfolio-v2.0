@@ -37,11 +37,13 @@ export const getMe = asyncWrapper(async (req, res) => {
 });
 
 export const logout = asyncWrapper(async (req, res) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+
   res.cookie('token', '', {
     httpOnly: true,
     expires: new Date(0),
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict'
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax'
   });
 
   res.status(200).json({
